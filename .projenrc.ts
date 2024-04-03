@@ -7,11 +7,19 @@ const project = new awscdk.AwsCdkConstructLibrary({
   jsiiVersion: '~5.0.0',
   name: 'cdk-vpn-toumoro-projen',
   projenrcTs: true,
-  repositoryUrl: 'https://github.com/lucio.carvalho/cdk-vpn-toumoro-projen.git',
+  repositoryUrl: 'https://github.com/tm-lcarvalho/cdk-vpc-toumoro-projen.git',
+  description: 'A CDK construct library to create a VPC with VPN',
+  license: 'Apache-2.0',
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   // devDeps: [],             /* Build dependencies for this module. */
   // packageName: undefined,  /* The "name" in package.json. */
+  publishToPypi: {
+    distName: 'cdk-vpc-toumoro-projen',
+    module: 'cdk-vpc-toumoro-projen',
+  },
 });
+
+
 project.synth();

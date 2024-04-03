@@ -1,8 +1,8 @@
 {
-  "name": "cdk-vpn-toumoro-projen",
+  "name": "cdk-vpc-toumoro-projen",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lucio.carvalho/cdk-vpn-toumoro-projen.git"
+    "url": "git@github.com:tm-lcarvalho/cdk-vpc-toumoro-projen.git"
   },
   "scripts": {
     "build": "npx projen build",
