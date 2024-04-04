@@ -1,4 +1,4 @@
-import {javascript, awscdk } from 'projen';
+import { javascript, awscdk } from 'projen';
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'tm-lcarvalho',
   authorAddress: 'lucio.carvalho@toumoro.com',
