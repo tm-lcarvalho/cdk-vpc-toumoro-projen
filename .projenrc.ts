@@ -8,7 +8,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: 'cdk-vpn-toumoro-projen',
   projenrcTs: true,
   repositoryUrl: 'https://github.com/tm-lcarvalho/cdk-vpc-toumoro-projen.git',
-  description: 'A CDK construct library to create a VPC with VPN',
+  description: 'A CDK construct library to create a VPC with public and private subnets.',
   license: 'Apache-2.0',
 
   // deps: [],                /* Runtime dependencies of this module. */
