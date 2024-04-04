@@ -10,7 +10,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com/tm-lcarvalho/cdk-vpc-toumoro-projen.git',
   description: 'A CDK construct library to create a VPC with public and private subnets.',
   license: 'Apache-2.0',
-
+  gitignore: ['.venv','.env'],
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   // devDeps: [],             /* Build dependencies for this module. */
