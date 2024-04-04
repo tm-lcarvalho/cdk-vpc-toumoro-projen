@@ -19,7 +19,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     distName: 'cdk-vpc-toumoro-projen',
     module: 'cdk-vpc-toumoro-projen',
   },
-  stability: 'experimental',
+  //stability: 'experimental',
 });
 
 project.synth();
