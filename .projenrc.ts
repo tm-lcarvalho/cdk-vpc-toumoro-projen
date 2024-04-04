@@ -4,7 +4,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'lucio.carvalho@toumoro.com',
   cdkVersion: '2.1.0',
   defaultReleaseBranch: 'main',
-  jsiiVersion: '~5.0.0',
+  jsiiVersion: '~5.2.0',
   name: 'cdk-vpn-toumoro-projen',
   projenrcTs: true,
   repositoryUrl: 'https://github.com/tm-lcarvalho/cdk-vpc-toumoro-projen.git',
@@ -21,6 +21,5 @@ const project = new awscdk.AwsCdkConstructLibrary({
   },
   stability: 'experimental',
 });
-
 
 project.synth();
