@@ -9,16 +9,13 @@ const project = new awscdk.AwsCdkConstructLibrary({
   projenrcTs: true,
   repositoryUrl: 'https://github.com/tm-lcarvalho/cdk-vpc-toumoro-projen.git',
   description: 'A CDK construct library to create a VPC with public and private subnets.',
-  license: 'Apache-2.0',
+  license: 'GPL-3.0-or-later',
   gitignore: ['.venv', '.env'],
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   // devDeps: [],             /* Build dependencies for this module. */
   // packageName: undefined,  /* The "name" in package.json. */
   npmProvenance: false,
-  //npmAccess: javascript.NpmAccess.PUBLIC,
-  //release: true,
-  //releaseToNpm: true,
   publishToPypi: {
     distName: 'cdk-vpc-toumoro-projen',
     module: 'cdk-vpc-toumoro-projen',
