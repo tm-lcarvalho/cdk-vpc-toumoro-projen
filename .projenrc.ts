@@ -1,4 +1,4 @@
-import { javascript, awscdk } from 'projen';
+import { awscdk } from 'projen';
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'tm-lcarvalho',
   authorAddress: 'lucio.carvalho@toumoro.com',
@@ -15,9 +15,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   // devDeps: [],             /* Build dependencies for this module. */
   // packageName: undefined,  /* The "name" in package.json. */
-  npmAccess: javascript.NpmAccess.PUBLIC,
-  release: true,
-  releaseToNpm: true,
+  npmProvenance: false,
+  //npmAccess: javascript.NpmAccess.PUBLIC,
+  //release: true,
+  //releaseToNpm: true,
   publishToPypi: {
     distName: 'cdk-vpc-toumoro-projen',
     module: 'cdk-vpc-toumoro-projen',
