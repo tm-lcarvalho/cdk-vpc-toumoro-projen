@@ -2,7 +2,7 @@ import { App, Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { Vpc } from '../src';
 
-describe('CheapVpc', () => {
+describe('Vpc', () => {
   it('Should match snapshot', () => {
     // Given
     const app = new App();
