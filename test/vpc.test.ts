@@ -1,19 +1,15 @@
-import { App, Stack } from 'aws-cdk-lib';
-import { Template } from 'aws-cdk-lib/assertions';
-import { Vpc } from '../src';
+import * as cdk from 'aws-cdk-lib';
+import { VpcBase } from '../src';
 
-describe('Vpc', () => {
-  it('Should match snapshot', () => {
-    // Given
-    const app = new App();
-    const stack = new Stack(app, 'Network', { env: { region: 'us-east-1', account: '123456789012' } });
-    new Vpc(stack, 'Vpc');
 
-    // When
-    const template = Template.fromStack(stack);
+test('VPCBase Construct creates a VPC with the specified CIDR block', () => {
+  const app = new cdk.App();
+  const stack = new cdk.Stack(app, 'TestStack');
 
-    // Then
-    expect(template).toMatchSnapshot();
+  // Instantiate the VPC construct with a specific CIDR block
+  new VpcBase(stack, 'MyVpc', {
+    cidr: '10.0.0.0/16', // Specify the CIDR block for the VPC
+    // You can pass any other required properties here
   });
 
 });

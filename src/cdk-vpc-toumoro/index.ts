@@ -1,37 +1,38 @@
-import * as cdk from 'aws-cdk-lib';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
 
+export interface VpcProps {
+  readonly cidr: string; // CIDR block for the VPC
+  readonly maxAzs?: number; // Maximum availability zones
+  // Define any other properties you want to pass to the VPC construct
+}
 
-export class Vpc extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
-    super(scope, id, props);
+export class VpcBase extends Construct {
+  public readonly vpc: ec2.Vpc;
 
-    // Create a VPC with two subnets (public and private)
-    const vpc = new ec2.Vpc(this, 'MyVpc', {
-      cidr: '10.0.0.0/16',
-      maxAzs: 2,
+  constructor(scope: Construct, id: string, props: VpcProps) {
+    super(scope, id);
+
+    // Create a VPC
+    this.vpc = new ec2.Vpc(this, 'VpcBase', {
+      cidr: props.cidr, // Use the provided CIDR block for the VPC
+      maxAzs: props.maxAzs, // Maximum availability zones
       subnetConfiguration: [
         {
           cidrMask: 24,
           name: 'PublicSubnet',
-          subnetType: ec2.SubnetType.PUBLIC,
+          subnetType: ec2.SubnetType.PUBLIC, // Public subnet
         },
         {
           cidrMask: 24,
           name: 'PrivateSubnet',
-          subnetType: ec2.SubnetType.PRIVATE,
+          subnetType: ec2.SubnetType.PRIVATE, // Private subnet
         },
+        // You can add more subnet configurations as needed
       ],
-    });
-
-    // Output the VPC ID
-    new cdk.CfnOutput(this, 'VpcId', {
-      value: vpc.vpcId,
+      natGateways: 1, // Number of NAT gateways (for private subnets)
+      enableDnsHostnames: true,
+      enableDnsSupport: true,
     });
   }
 }
-
-// Create an instance of the stack
-const app = new cdk.App();
-new Vpc(app, 'VpcStack');
