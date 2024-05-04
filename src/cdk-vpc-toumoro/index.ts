@@ -2,13 +2,14 @@ import { CfnOutput } from 'aws-cdk-lib';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
 
+
 export interface VpcProps {
-  readonly ipAddresses: string; // CIDR block for the VPC
+  readonly cidr: string; // CIDR block for the VPC
   readonly maxAzs?: number; // Maximum availability zones
   // Define any other properties you want to pass to the VPC construct
 }
 
-export class VpcBase extends Construct {
+export class VpcBase extends ec2.Vpc {
   public readonly vpc: ec2.Vpc;
 
   constructor(scope: Construct, id: string, props: VpcProps) {
@@ -16,7 +17,7 @@ export class VpcBase extends Construct {
 
     // Create a VPC
     this.vpc = new ec2.Vpc(this, 'VpcBase', {
-      ipAddresses: props.ipAddresses, // Use the provided CIDR block for the VPC
+      cidr: props.cidr, // Default CIDR block for the VPC
       maxAzs: props.maxAzs, // Maximum availability zones
       subnetConfiguration: [
         {
