@@ -9,14 +9,14 @@
 ```typescript
 import { VpcBase } from 'cdk-vpc-toumoro-projen'
 
-new VpcBase(scope: Construct, id: string, props: VpcProps)
+new VpcBase(scope: Construct, id: string, props: IVpcBase)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-vpc-toumoro-projen.VpcBase.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#cdk-vpc-toumoro-projen.VpcBase.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-vpc-toumoro-projen.VpcBase.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-vpc-toumoro-projen.VpcProps">VpcProps</a></code> | *No description.* |
+| <code><a href="#cdk-vpc-toumoro-projen.VpcBase.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-vpc-toumoro-projen.IVpcBase">IVpcBase</a></code> | *No description.* |
 
 ---
 
@@ -34,7 +34,7 @@ new VpcBase(scope: Construct, id: string, props: VpcProps)
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-vpc-toumoro-projen.VpcBase.Initializer.parameter.props"></a>
 
-- *Type:* <a href="#cdk-vpc-toumoro-projen.VpcProps">VpcProps</a>
+- *Type:* <a href="#cdk-vpc-toumoro-projen.IVpcBase">IVpcBase</a>
 
 ---
 
@@ -217,8 +217,9 @@ Returns IDs of selected subnets.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-vpc-toumoro-projen.VpcBase.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-vpc-toumoro-projen.VpcBase.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#cdk-vpc-toumoro-projen.VpcBase.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#cdk-vpc-toumoro-projen.VpcBase.fromLookup">fromLookup</a></code> | Import an existing VPC from by querying the AWS environment this stack is deployed to. |
+| <code><a href="#cdk-vpc-toumoro-projen.VpcBase.fromLookup">fromLookup</a></code> | Import an existing VPC by querying the AWS environment this stack is deployed to. |
 | <code><a href="#cdk-vpc-toumoro-projen.VpcBase.fromVpcAttributes">fromVpcAttributes</a></code> | Import a VPC by supplying all attributes directly. |
 
 ---
@@ -238,6 +239,22 @@ Checks if `x` is a construct.
 - *Type:* any
 
 Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-vpc-toumoro-projen.VpcBase.isOwnedResource"></a>
+
+```typescript
+import { VpcBase } from 'cdk-vpc-toumoro-projen'
+
+VpcBase.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-vpc-toumoro-projen.VpcBase.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -265,7 +282,7 @@ import { VpcBase } from 'cdk-vpc-toumoro-projen'
 VpcBase.fromLookup(scope: Construct, id: string, options: VpcLookupOptions)
 ```
 
-Import an existing VPC from by querying the AWS environment this stack is deployed to.
+Import an existing VPC by querying the AWS environment this stack is deployed to.
 
 This function only needs to be used to use VPCs not defined in your CDK
 application. If you are looking to share a VPC between stacks, you can
@@ -346,7 +363,6 @@ Prefer to use `Vpc.fromLookup()` instead.
 | <code><a href="#cdk-vpc-toumoro-projen.VpcBase.property.dnsHostnamesEnabled">dnsHostnamesEnabled</a></code> | <code>boolean</code> | Indicates if instances launched in this VPC will have public DNS hostnames. |
 | <code><a href="#cdk-vpc-toumoro-projen.VpcBase.property.dnsSupportEnabled">dnsSupportEnabled</a></code> | <code>boolean</code> | Indicates if DNS support is enabled for this VPC. |
 | <code><a href="#cdk-vpc-toumoro-projen.VpcBase.property.internetConnectivityEstablished">internetConnectivityEstablished</a></code> | <code>constructs.IDependable</code> | Dependencies for internet connectivity. |
-| <code><a href="#cdk-vpc-toumoro-projen.VpcBase.property.internetGatewayId">internetGatewayId</a></code> | <code>string</code> | Internet Gateway for the VPC. |
 | <code><a href="#cdk-vpc-toumoro-projen.VpcBase.property.isolatedSubnets">isolatedSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | List of isolated subnets in this VPC. |
 | <code><a href="#cdk-vpc-toumoro-projen.VpcBase.property.privateSubnets">privateSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | List of private subnets in this VPC. |
 | <code><a href="#cdk-vpc-toumoro-projen.VpcBase.property.publicSubnets">publicSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | List of public subnets in this VPC. |
@@ -357,6 +373,7 @@ Prefer to use `Vpc.fromLookup()` instead.
 | <code><a href="#cdk-vpc-toumoro-projen.VpcBase.property.vpcDefaultSecurityGroup">vpcDefaultSecurityGroup</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-vpc-toumoro-projen.VpcBase.property.vpcId">vpcId</a></code> | <code>string</code> | Identifier for this VPC. |
 | <code><a href="#cdk-vpc-toumoro-projen.VpcBase.property.vpcIpv6CidrBlocks">vpcIpv6CidrBlocks</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-vpc-toumoro-projen.VpcBase.property.internetGatewayId">internetGatewayId</a></code> | <code>string</code> | Internet Gateway for the VPC. |
 | <code><a href="#cdk-vpc-toumoro-projen.VpcBase.property.vpnGatewayId">vpnGatewayId</a></code> | <code>string</code> | Returns the id of the VPN Gateway (if enabled). |
 | <code><a href="#cdk-vpc-toumoro-projen.VpcBase.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.Vpc</code> | *No description.* |
 
@@ -450,21 +467,6 @@ public readonly internetConnectivityEstablished: IDependable;
 - *Type:* constructs.IDependable
 
 Dependencies for internet connectivity.
-
----
-
-##### `internetGatewayId`<sup>Optional</sup> <a name="internetGatewayId" id="cdk-vpc-toumoro-projen.VpcBase.property.internetGatewayId"></a>
-
-```typescript
-public readonly internetGatewayId: string;
-```
-
-- *Type:* string
-
-Internet Gateway for the VPC.
-
-Note that in case the VPC is configured only
-with ISOLATED subnets, this attribute will be `undefined`.
 
 ---
 
@@ -580,6 +582,21 @@ public readonly vpcIpv6CidrBlocks: string[];
 
 ---
 
+##### `internetGatewayId`<sup>Optional</sup> <a name="internetGatewayId" id="cdk-vpc-toumoro-projen.VpcBase.property.internetGatewayId"></a>
+
+```typescript
+public readonly internetGatewayId: string;
+```
+
+- *Type:* string
+
+Internet Gateway for the VPC.
+
+Note that in case the VPC is configured only
+with ISOLATED subnets, this attribute will be `undefined`.
+
+---
+
 ##### `vpnGatewayId`<sup>Optional</sup> <a name="vpnGatewayId" id="cdk-vpc-toumoro-projen.VpcBase.property.vpnGatewayId"></a>
 
 ```typescript
@@ -625,6 +642,8 @@ The default CIDR range used when creating VPCs.
 This can be overridden using VpcProps when creating a VPCNetwork resource.
 e.g. new VpcResource(this, { cidr: '192.168.0.0./16' })
 
+Note this is specific to the IPv4 CIDR.
+
 ---
 
 ##### `DEFAULT_SUBNETS`<sup>Required</sup> <a name="DEFAULT_SUBNETS" id="cdk-vpc-toumoro-projen.VpcBase.property.DEFAULT_SUBNETS"></a>
@@ -655,28 +674,25 @@ The default subnet configuration if natGateways specified to be 0.
 
 ---
 
-## Structs <a name="Structs" id="Structs"></a>
 
-### VpcProps <a name="VpcProps" id="cdk-vpc-toumoro-projen.VpcProps"></a>
 
-#### Initializer <a name="Initializer" id="cdk-vpc-toumoro-projen.VpcProps.Initializer"></a>
+## Protocols <a name="Protocols" id="Protocols"></a>
 
-```typescript
-import { VpcProps } from 'cdk-vpc-toumoro-projen'
+### IVpcBase <a name="IVpcBase" id="cdk-vpc-toumoro-projen.IVpcBase"></a>
 
-const vpcProps: VpcProps = { ... }
-```
+- *Implemented By:* <a href="#cdk-vpc-toumoro-projen.IVpcBase">IVpcBase</a>
+
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-vpc-toumoro-projen.VpcProps.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-vpc-toumoro-projen.VpcProps.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-vpc-toumoro-projen.IVpcBase.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-vpc-toumoro-projen.IVpcBase.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
 
 ---
 
-##### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-vpc-toumoro-projen.VpcProps.property.cidr"></a>
+##### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-vpc-toumoro-projen.IVpcBase.property.cidr"></a>
 
 ```typescript
 public readonly cidr: string;
@@ -686,7 +702,7 @@ public readonly cidr: string;
 
 ---
 
-##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-vpc-toumoro-projen.VpcProps.property.maxAzs"></a>
+##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-vpc-toumoro-projen.IVpcBase.property.maxAzs"></a>
 
 ```typescript
 public readonly maxAzs: number;
@@ -695,6 +711,4 @@ public readonly maxAzs: number;
 - *Type:* number
 
 ---
-
-
 
