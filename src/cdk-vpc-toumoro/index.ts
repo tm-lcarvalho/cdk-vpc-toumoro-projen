@@ -5,7 +5,8 @@ import { Construct } from 'constructs';
 
 export interface IVpcBase {
   readonly cidr: string; // CIDR block for the VPC
-  readonly maxAzs?: number; // Maximum availability zones
+  readonly maxAzs?: number;
+  readonly natGateways?: number; // Maximum availability zones
   // Define any other properties you want to pass to the VPC construct
 }
 
@@ -33,7 +34,7 @@ export class VpcBase extends ec2.Vpc {
         },
         // You can add more subnet configurations as needed
       ],
-      natGateways: 1, // Number of NAT gateways (for private subnets)
+      natGateways: props.natGateways !== undefined ? props.natGateways : 1, // Number of NAT gateways (for private subnets): props.natGateways | 1, // Number of NAT gateways (for private subnets)
       enableDnsHostnames: true,
       enableDnsSupport: true,
     });

@@ -689,6 +689,7 @@ The default subnet configuration if natGateways specified to be 0.
 | --- | --- | --- |
 | <code><a href="#cdk-vpc-toumoro-projen.IVpcBase.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-vpc-toumoro-projen.IVpcBase.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-vpc-toumoro-projen.IVpcBase.property.natGateways">natGateways</a></code> | <code>number</code> | *No description.* |
 
 ---
 
@@ -706,6 +707,16 @@ public readonly cidr: string;
 
 ```typescript
 public readonly maxAzs: number;
+```
+
+- *Type:* number
+
+---
+
+##### `natGateways`<sup>Optional</sup> <a name="natGateways" id="cdk-vpc-toumoro-projen.IVpcBase.property.natGateways"></a>
+
+```typescript
+public readonly natGateways: number;
 ```
 
 - *Type:* number
