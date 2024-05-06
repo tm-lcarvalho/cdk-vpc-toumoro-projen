@@ -29,7 +29,7 @@ export class VpcBase extends ec2.Vpc {
         },
         {
           cidrMask: 24,
-          name: 'PrivateSubnet',
+          name: 'PrivateSubnetWithNat',
           subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS, // Private subnet
         },
         {
