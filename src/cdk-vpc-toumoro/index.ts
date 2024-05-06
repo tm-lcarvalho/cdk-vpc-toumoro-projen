@@ -19,7 +19,7 @@ export class VpcBase extends ec2.Vpc {
     // Create a VPC
     this.vpc = new ec2.Vpc(this, 'VpcBase', {
       // Default CIDR block for the VPC
-      ipAddresses: ec2.IpAddresses.cidr(props.cidr), 
+      ipAddresses: ec2.IpAddresses.cidr(props.cidr),
       maxAzs: props.maxAzs, // Maximum availability zones
       subnetConfiguration: [
         {
