@@ -18,8 +18,8 @@ export class VpcBase extends ec2.Vpc {
 
     // Create a VPC
     this.vpc = new ec2.Vpc(this, 'VpcBase', {
-      ipAddresses: ec2.IpAddresses.cidr(props.cidr), // Default CIDR block for the VPC
-      //cidr: props.cidr, // Default CIDR block for the VPC
+      // Default CIDR block for the VPC
+      ipAddresses: ec2.IpAddresses.cidr(props.cidr), 
       maxAzs: props.maxAzs, // Maximum availability zones
       subnetConfiguration: [
         {
@@ -32,7 +32,11 @@ export class VpcBase extends ec2.Vpc {
           name: 'PrivateSubnet',
           subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS, // Private subnet
         },
-        // You can add more subnet configurations as needed
+        {
+          cidrMask: 24,
+          name: 'RDS',
+          subnetType: ec2.SubnetType.PRIVATE_ISOLATED, // Private subnet
+        },
       ],
       natGateways: props.natGateways !== undefined ? props.natGateways : 1, // Number of NAT gateways (for private subnets): props.natGateways | 1, // Number of NAT gateways (for private subnets)
       enableDnsHostnames: true,
