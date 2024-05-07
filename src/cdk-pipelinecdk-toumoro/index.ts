@@ -25,7 +25,7 @@ export class PipelineCdk extends Construct {
       synth: new pipelines.ShellStep('Synth', {
         input: pipelines.CodePipelineSource.codeCommit(repository, props.repoBranch),
         // Commands to run in the synth step
-        commands: ['npm ci', 'npm run build', 'npx cdk synth'],
+        commands: ['npm projen', 'npx projen build', 'npx projen synth'],
 
       }),
     });
