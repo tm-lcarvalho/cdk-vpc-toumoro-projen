@@ -2,6 +2,116 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
+### PipelineCdk <a name="PipelineCdk" id="cdk-vpc-toumoro-projen.PipelineCdk"></a>
+
+#### Initializers <a name="Initializers" id="cdk-vpc-toumoro-projen.PipelineCdk.Initializer"></a>
+
+```typescript
+import { PipelineCdk } from 'cdk-vpc-toumoro-projen'
+
+new PipelineCdk(scope: Construct, id: string, props: PipelineProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-vpc-toumoro-projen.PipelineCdk.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-vpc-toumoro-projen.PipelineCdk.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-vpc-toumoro-projen.PipelineCdk.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-vpc-toumoro-projen.PipelineProps">PipelineProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-vpc-toumoro-projen.PipelineCdk.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-vpc-toumoro-projen.PipelineCdk.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-vpc-toumoro-projen.PipelineCdk.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-vpc-toumoro-projen.PipelineProps">PipelineProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-vpc-toumoro-projen.PipelineCdk.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-vpc-toumoro-projen.PipelineCdk.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-vpc-toumoro-projen.PipelineCdk.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-vpc-toumoro-projen.PipelineCdk.isConstruct"></a>
+
+```typescript
+import { PipelineCdk } from 'cdk-vpc-toumoro-projen'
+
+PipelineCdk.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-vpc-toumoro-projen.PipelineCdk.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-vpc-toumoro-projen.PipelineCdk.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-vpc-toumoro-projen.PipelineCdk.property.pipeline">pipeline</a></code> | <code>aws-cdk-lib.pipelines.CodePipeline</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-vpc-toumoro-projen.PipelineCdk.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `pipeline`<sup>Required</sup> <a name="pipeline" id="cdk-vpc-toumoro-projen.PipelineCdk.property.pipeline"></a>
+
+```typescript
+public readonly pipeline: CodePipeline;
+```
+
+- *Type:* aws-cdk-lib.pipelines.CodePipeline
+
+---
+
+
 ### VpcBase <a name="VpcBase" id="cdk-vpc-toumoro-projen.VpcBase"></a>
 
 #### Initializers <a name="Initializers" id="cdk-vpc-toumoro-projen.VpcBase.Initializer"></a>
@@ -674,6 +784,57 @@ The default subnet configuration if natGateways specified to be 0.
 
 ---
 
+## Structs <a name="Structs" id="Structs"></a>
+
+### PipelineProps <a name="PipelineProps" id="cdk-vpc-toumoro-projen.PipelineProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-vpc-toumoro-projen.PipelineProps.Initializer"></a>
+
+```typescript
+import { PipelineProps } from 'cdk-vpc-toumoro-projen'
+
+const pipelineProps: PipelineProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-vpc-toumoro-projen.PipelineProps.property.pipelineName">pipelineName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-vpc-toumoro-projen.PipelineProps.property.repoBranch">repoBranch</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-vpc-toumoro-projen.PipelineProps.property.repoName">repoName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `pipelineName`<sup>Required</sup> <a name="pipelineName" id="cdk-vpc-toumoro-projen.PipelineProps.property.pipelineName"></a>
+
+```typescript
+public readonly pipelineName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `repoBranch`<sup>Required</sup> <a name="repoBranch" id="cdk-vpc-toumoro-projen.PipelineProps.property.repoBranch"></a>
+
+```typescript
+public readonly repoBranch: string;
+```
+
+- *Type:* string
+
+---
+
+##### `repoName`<sup>Required</sup> <a name="repoName" id="cdk-vpc-toumoro-projen.PipelineProps.property.repoName"></a>
+
+```typescript
+public readonly repoName: string;
+```
+
+- *Type:* string
+
+---
 
 
 ## Protocols <a name="Protocols" id="Protocols"></a>
