@@ -5,6 +5,7 @@ import { Construct } from 'constructs';
 
 // https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.pipelines-readme.html
 
+// Define the properties for the Pipeline construct
 export interface PipelineProps {
   readonly pipelineName: string;
   readonly repoName: string;
