@@ -11,6 +11,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   description: 'A CDK construct library to create a VPC with public and private subnets.',
   license: 'GPL-3.0-or-later',
   gitignore: ['.venv', '.env'],
+  npmignore: ['examples'],
+
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   // devDeps: [],             /* Build dependencies for this module. */
