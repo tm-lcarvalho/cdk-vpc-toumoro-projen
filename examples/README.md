@@ -7,6 +7,7 @@ mkdir cdk-<nom-du-stack-exemple-pour-le-developpement-de-constructs>
 
 Initialisation de CDK
 ```bash
+cd cdk-<nom-du-stack-exemple-pour-le-developpement-de-constructs>
 cdk init app --language typescript
 ```
 
@@ -24,6 +25,11 @@ Mise à jour de la version du construct et de la bibliothèque CDK utilisés dan
     [...]
   }
 }
+```
+
+Mise à niveau les packages js
+```
+npm install
 ```
 
 Suivez le README du projet pour déployer la nouvelle pile.
