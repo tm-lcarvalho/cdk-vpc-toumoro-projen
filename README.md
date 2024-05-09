@@ -1,4 +1,5 @@
-# replace this
+# Contributing to CDK Construct Toumoro
+[Contributing](CONTRIBUTING.md)
 
 # Examples
 [Examples](examples/README.md)
