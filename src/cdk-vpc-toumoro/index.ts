@@ -10,7 +10,7 @@ export interface IVpcBase {
   // Define any other properties you want to pass to the VPC construct
 }
 
-export class VpcBase extends ec2.Vpc {
+export class VpcBase extends Construct {
   public readonly vpc: ec2.Vpc;
 
   constructor(scope: Construct, id: string, props: IVpcBase) {
