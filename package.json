@@ -1,9 +1,9 @@
 {
-  "name": "cdk-vpc-toumoro-projen",
-  "description": "A CDK construct library to create a VPC with public and private subnets.",
+  "name": "cdk-constructs",
+  "description": "A CDK construct library",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tm-lcarvalho/cdk-vpc-toumoro-projen.git"
+    "url": "https://github.com/tm-lcarvalho/cdk-constructs.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -116,8 +116,8 @@
     "outdir": "dist",
     "targets": {
       "python": {
-        "distName": "cdk-vpc-toumoro-projen",
-        "module": "cdk-vpc-toumoro-projen"
+        "distName": "cdk-constructs",
+        "module": "cdk-constructs"
       }
     },
     "tsc": {

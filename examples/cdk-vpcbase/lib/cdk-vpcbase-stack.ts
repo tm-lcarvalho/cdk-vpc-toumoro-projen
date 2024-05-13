@@ -10,5 +10,8 @@ export class CdkVpcbaseStack extends cdk.Stack {
       cidr: '10.0.1.0/16',
     });
 
+    cdk.Tags.of(this).add('Project', 'CDK-VPC');
+    cdk.Tags.of(this).add('Backup', 'true');
+
   }
 }

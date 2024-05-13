@@ -27,7 +27,7 @@ Mise à jour de la version du construct et de la bibliothèque CDK utilisés dan
 }
 ```
 
-Mise à niveau les packages js
+Install the dependencies version
 ```
 npm install
 ```
