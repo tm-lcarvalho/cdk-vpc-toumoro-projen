@@ -1,10 +1,17 @@
+# CDK construct lib
+
+Welcome to Toumoro's AWS Service Wrapper CDK Construct Library! This library is designed to make it easy and efficient to deploy and manage AWS services within your CDK projects. Whether you're provisioning infrastructure for a simple web application or orchestrating a complex cloud-native architecture, this library aims to streamline your development process by providing high-level constructs for common AWS services.
+
+## Features
+  - Simplified Service Provisioning: Easily create and configure AWS services using intuitive CDK constructs.
+  - Best Practices Built-In: Leverage pre-configured settings and defaults based on AWS best practices to ensure reliable and secure deployments.
+  - Modular and Extensible: Compose your infrastructure using modular constructs, allowing for flexibility and reusability across projects.
+
 # Contributing to CDK Construct Toumoro
 [Contributing](CONTRIBUTING.md)
 
-
 # Examples
 [Examples](examples/README.md)
-
 
 # Documentation API
 [API](API.md)

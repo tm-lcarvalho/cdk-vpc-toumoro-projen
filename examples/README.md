@@ -26,4 +26,9 @@ Mise à jour de la version du construct et de la bibliothèque CDK utilisés dan
 }
 ```
 
+Install the dependencies version
+```
+npm install
+```
+
 Suivez le README du projet pour déployer la nouvelle pile.
