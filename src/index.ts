@@ -1,2 +1,2 @@
 export * from './cdk-vpc-network';
-//export * from './cdk-pipelinecdk-toumoro';z
+export * from './cdk-pipelinecdk';

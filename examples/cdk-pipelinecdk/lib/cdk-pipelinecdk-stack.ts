@@ -1,5 +1,6 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
+import { PipelineCdk } from '../../../src';
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class CdkPipelinecdkStack extends cdk.Stack {
@@ -7,10 +8,10 @@ export class CdkPipelinecdkStack extends cdk.Stack {
     super(scope, id, props);
 
     // The code that defines your stack goes here
-
-    // example resource
-    // const queue = new sqs.Queue(this, 'CdkPipelinecdkQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    new PipelineCdk(this, 'PipelineCdk', {
+      pipelineName: 'PipelineCdk',
+      repoName: 'cdk-constructs',
+      repoBranch: 'main',
+    });
   }
 }
