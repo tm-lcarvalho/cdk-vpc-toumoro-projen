@@ -4,6 +4,8 @@
 
 ### PipelineCdk <a name="PipelineCdk" id="cdk-constructs.PipelineCdk"></a>
 
+A CDK construct that creates a CodePipeline.
+
 #### Initializers <a name="Initializers" id="cdk-constructs.PipelineCdk.Initializer"></a>
 
 ```typescript
@@ -14,9 +16,9 @@ new PipelineCdk(scope: Construct, id: string, props: PipelineProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-constructs.PipelineCdk.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-constructs.PipelineCdk.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-constructs.PipelineCdk.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-constructs.PipelineProps">PipelineProps</a></code> | *No description.* |
+| <code><a href="#cdk-constructs.PipelineCdk.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | The parent construct. |
+| <code><a href="#cdk-constructs.PipelineCdk.Initializer.parameter.id">id</a></code> | <code>string</code> | The name of the construct. |
+| <code><a href="#cdk-constructs.PipelineCdk.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-constructs.PipelineProps">PipelineProps</a></code> | The properties for the construct. |
 
 ---
 
@@ -24,17 +26,23 @@ new PipelineCdk(scope: Construct, id: string, props: PipelineProps)
 
 - *Type:* constructs.Construct
 
+The parent construct.
+
 ---
 
 ##### `id`<sup>Required</sup> <a name="id" id="cdk-constructs.PipelineCdk.Initializer.parameter.id"></a>
 
 - *Type:* string
 
+The name of the construct.
+
 ---
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-constructs.PipelineCdk.Initializer.parameter.props"></a>
 
 - *Type:* <a href="#cdk-constructs.PipelineProps">PipelineProps</a>
+
+The properties for the construct.
 
 ---
 
@@ -85,7 +93,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-constructs.PipelineCdk.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-constructs.PipelineCdk.property.pipeline">pipeline</a></code> | <code>aws-cdk-lib.pipelines.CodePipeline</code> | *No description.* |
+| <code><a href="#cdk-constructs.PipelineCdk.property.pipeline">pipeline</a></code> | <code>aws-cdk-lib.pipelines.CodePipeline</code> | The CodePipeline created by the construct. |
 
 ---
 
@@ -108,6 +116,8 @@ public readonly pipeline: CodePipeline;
 ```
 
 - *Type:* aws-cdk-lib.pipelines.CodePipeline
+
+The CodePipeline created by the construct.
 
 ---
 
@@ -242,9 +252,9 @@ const pipelineProps: PipelineProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-constructs.PipelineProps.property.pipelineName">pipelineName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-constructs.PipelineProps.property.repoBranch">repoBranch</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-constructs.PipelineProps.property.repoName">repoName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-constructs.PipelineProps.property.pipelineName">pipelineName</a></code> | <code>string</code> | The name of the pipeline. |
+| <code><a href="#cdk-constructs.PipelineProps.property.repoBranch">repoBranch</a></code> | <code>string</code> | The branch of the repository to use. |
+| <code><a href="#cdk-constructs.PipelineProps.property.repoName">repoName</a></code> | <code>string</code> | The name of the repository. |
 
 ---
 
@@ -256,6 +266,8 @@ public readonly pipelineName: string;
 
 - *Type:* string
 
+The name of the pipeline.
+
 ---
 
 ##### `repoBranch`<sup>Required</sup> <a name="repoBranch" id="cdk-constructs.PipelineProps.property.repoBranch"></a>
@@ -266,6 +278,8 @@ public readonly repoBranch: string;
 
 - *Type:* string
 
+The branch of the repository to use.
+
 ---
 
 ##### `repoName`<sup>Required</sup> <a name="repoName" id="cdk-constructs.PipelineProps.property.repoName"></a>
@@ -275,6 +289,8 @@ public readonly repoName: string;
 ```
 
 - *Type:* string
+
+The name of the repository.
 
 ---
 
