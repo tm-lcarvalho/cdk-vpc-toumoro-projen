@@ -5,8 +5,10 @@ import { Construct } from 'constructs';
 
 export interface IVpcBase {
   readonly cidr: string; // CIDR block for the VPC
-  readonly maxAzs?: number;
-  readonly natGateways?: number; // Maximum availability zones
+  readonly maxAzs?: number; // Maximum availability zones
+  readonly natGateways?: number; // Number of NAT gateways
+  readonly enableEndpointS3?: boolean; // Enable S3 endpoint
+  readonly enableEndpointDynamoDB?: boolean; // Enable DynamoDB endpoint
   // Define any other properties you want to pass to the VPC construct
 }
 
@@ -42,6 +44,29 @@ export class VpcBase extends Construct {
       enableDnsHostnames: true,
       enableDnsSupport: true,
     });
+
+    // Add endpoints
+    // Add an S3 endpoint
+    if (props.enableEndpointS3) {
+      this.vpc.addGatewayEndpoint('S3Endpoint', {
+        service: ec2.GatewayVpcEndpointAwsService.S3,
+      });
+      const s3EndpointSecurityGroup = new ec2.SecurityGroup(this, 'S3EndpointSecurityGroup', {
+        vpc: this.vpc,
+      });
+      s3EndpointSecurityGroup.addIngressRule(ec2.Peer.ipv4(this.vpc.vpcCidrBlock), ec2.Port.tcp(443));
+    }
+    // Add a DynamoDB endpoint
+    if (props.enableEndpointDynamoDB) {
+      this.vpc.addGatewayEndpoint('DynamodbEndpoint', {
+        service: ec2.GatewayVpcEndpointAwsService.DYNAMODB,
+      });
+      const dynamodbEndpointSecurityGroup = new ec2.SecurityGroup(this, 'DynamodbEndpointSecurityGroup', {
+        vpc: this.vpc,
+      });
+      dynamodbEndpointSecurityGroup.addIngressRule(ec2.Peer.ipv4(this.vpc.vpcCidrBlock), ec2.Port.tcp(443));
+    }
+
     new CfnOutput(this, 'VpcId', {
       value: this.vpc.vpcId,
       description: 'VPC ID',

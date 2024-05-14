@@ -287,6 +287,8 @@ public readonly repoName: string;
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-constructs.IVpcBase.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-constructs.IVpcBase.property.enableEndpointDynamoDB">enableEndpointDynamoDB</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-constructs.IVpcBase.property.enableEndpointS3">enableEndpointS3</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-constructs.IVpcBase.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-constructs.IVpcBase.property.natGateways">natGateways</a></code> | <code>number</code> | *No description.* |
 
@@ -299,6 +301,26 @@ public readonly cidr: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `enableEndpointDynamoDB`<sup>Optional</sup> <a name="enableEndpointDynamoDB" id="cdk-constructs.IVpcBase.property.enableEndpointDynamoDB"></a>
+
+```typescript
+public readonly enableEndpointDynamoDB: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `enableEndpointS3`<sup>Optional</sup> <a name="enableEndpointS3" id="cdk-constructs.IVpcBase.property.enableEndpointS3"></a>
+
+```typescript
+public readonly enableEndpointS3: boolean;
+```
+
+- *Type:* boolean
 
 ---
 
