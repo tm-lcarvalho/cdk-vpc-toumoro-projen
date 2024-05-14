@@ -114,6 +114,8 @@ public readonly pipeline: CodePipeline;
 
 ### VpcBase <a name="VpcBase" id="cdk-constructs.VpcBase"></a>
 
+A VPC construct that creates a VPC with public and private subnets.
+
 #### Initializers <a name="Initializers" id="cdk-constructs.VpcBase.Initializer"></a>
 
 ```typescript
@@ -195,7 +197,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-constructs.VpcBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-constructs.VpcBase.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.Vpc</code> | *No description.* |
+| <code><a href="#cdk-constructs.VpcBase.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.Vpc</code> | The VPC created by the construct. |
 
 ---
 
@@ -218,6 +220,8 @@ public readonly vpc: Vpc;
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.Vpc
+
+The VPC created by the construct.
 
 ---
 
@@ -281,16 +285,18 @@ public readonly repoName: string;
 
 - *Implemented By:* <a href="#cdk-constructs.IVpcBase">IVpcBase</a>
 
+Represents the configuration for a VPC.
+
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-constructs.IVpcBase.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-constructs.IVpcBase.property.enableEndpointDynamoDB">enableEndpointDynamoDB</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-constructs.IVpcBase.property.enableEndpointS3">enableEndpointS3</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-constructs.IVpcBase.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-constructs.IVpcBase.property.natGateways">natGateways</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-constructs.IVpcBase.property.cidr">cidr</a></code> | <code>string</code> | The CIDR block for the VPC. |
+| <code><a href="#cdk-constructs.IVpcBase.property.enableEndpointDynamoDB">enableEndpointDynamoDB</a></code> | <code>boolean</code> | Indicates whether to enable the DynamoDB endpoint for the VPC. |
+| <code><a href="#cdk-constructs.IVpcBase.property.enableEndpointS3">enableEndpointS3</a></code> | <code>boolean</code> | Indicates whether to enable the S3 endpoint for the VPC. |
+| <code><a href="#cdk-constructs.IVpcBase.property.maxAzs">maxAzs</a></code> | <code>number</code> | The maximum number of availability zones to use for the VPC. |
+| <code><a href="#cdk-constructs.IVpcBase.property.natGateways">natGateways</a></code> | <code>number</code> | The number of NAT gateways to create for the VPC. |
 
 ---
 
@@ -302,6 +308,8 @@ public readonly cidr: string;
 
 - *Type:* string
 
+The CIDR block for the VPC.
+
 ---
 
 ##### `enableEndpointDynamoDB`<sup>Optional</sup> <a name="enableEndpointDynamoDB" id="cdk-constructs.IVpcBase.property.enableEndpointDynamoDB"></a>
@@ -311,6 +319,8 @@ public readonly enableEndpointDynamoDB: boolean;
 ```
 
 - *Type:* boolean
+
+Indicates whether to enable the DynamoDB endpoint for the VPC.
 
 ---
 
@@ -322,6 +332,8 @@ public readonly enableEndpointS3: boolean;
 
 - *Type:* boolean
 
+Indicates whether to enable the S3 endpoint for the VPC.
+
 ---
 
 ##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-constructs.IVpcBase.property.maxAzs"></a>
@@ -332,6 +344,8 @@ public readonly maxAzs: number;
 
 - *Type:* number
 
+The maximum number of availability zones to use for the VPC.
+
 ---
 
 ##### `natGateways`<sup>Optional</sup> <a name="natGateways" id="cdk-constructs.IVpcBase.property.natGateways"></a>
@@ -341,6 +355,8 @@ public readonly natGateways: number;
 ```
 
 - *Type:* number
+
+The number of NAT gateways to create for the VPC.
 
 ---
 
