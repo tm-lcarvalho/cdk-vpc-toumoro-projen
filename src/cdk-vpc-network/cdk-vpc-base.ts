@@ -3,16 +3,45 @@ import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
 
 
+/**
+ * Represents the configuration for a VPC.
+ */
 export interface IVpcBase {
-  readonly cidr: string; // CIDR block for the VPC
-  readonly maxAzs?: number; // Maximum availability zones
-  readonly natGateways?: number; // Number of NAT gateways
-  readonly enableEndpointS3?: boolean; // Enable S3 endpoint
-  readonly enableEndpointDynamoDB?: boolean; // Enable DynamoDB endpoint
+  /**
+   * The CIDR block for the VPC.
+   */
+  readonly cidr: string;
+
+  /**
+   * The maximum number of availability zones to use for the VPC.
+   */
+  readonly maxAzs?: number;
+
+  /**
+   * The number of NAT gateways to create for the VPC.
+   */
+  readonly natGateways?: number;
+
+  /**
+   * Indicates whether to enable the S3 endpoint for the VPC.
+   */
+  readonly enableEndpointS3?: boolean;
+
+  /**
+   * Indicates whether to enable the DynamoDB endpoint for the VPC.
+   */
+  readonly enableEndpointDynamoDB?: boolean;
+
   // Define any other properties you want to pass to the VPC construct
 }
 
+/**
+ * A VPC construct that creates a VPC with public and private subnets.
+ */
 export class VpcBase extends Construct {
+  /**
+   * The VPC created by the construct.
+   */
   public readonly vpc: ec2.Vpc;
 
   constructor(scope: Construct, id: string, props: IVpcBase) {
