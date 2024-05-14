@@ -22,16 +22,6 @@ export interface IVpcBase {
    */
   readonly natGateways?: number;
 
-  /**
-   * Indicates whether to enable the S3 endpoint for the VPC.
-   */
-  readonly enableEndpointS3?: boolean;
-
-  /**
-   * Indicates whether to enable the DynamoDB endpoint for the VPC.
-   */
-  readonly enableEndpointDynamoDB?: boolean;
-
   // Define any other properties you want to pass to the VPC construct
 }
 
@@ -74,27 +64,20 @@ export class VpcBase extends Construct {
       enableDnsSupport: true,
     });
 
-    // Add endpoints
-    // Add an S3 endpoint
-    if (props.enableEndpointS3) {
-      this.vpc.addGatewayEndpoint('S3Endpoint', {
-        service: ec2.GatewayVpcEndpointAwsService.S3,
+    function addGatewayEndpoint(service: string) {
+      this.vpc.addGatewayEndpoint(`${service}Endpoint`, {
+      service: ec2.GatewayVpcEndpointAwsService[service.toUpperCase()],
       });
-      const s3EndpointSecurityGroup = new ec2.SecurityGroup(this, 'S3EndpointSecurityGroup', {
-        vpc: this.vpc,
+      const endpointSecurityGroup = new ec2.SecurityGroup(this, `${service}EndpointSecurityGroup`, {
+      vpc: this.vpc,
       });
-      s3EndpointSecurityGroup.addIngressRule(ec2.Peer.ipv4(this.vpc.vpcCidrBlock), ec2.Port.tcp(443));
+      endpointSecurityGroup.addIngressRule(ec2.Peer.ipv4(this.vpc.vpcCidrBlock), ec2.Port.tcp(443));
     }
-    // Add a DynamoDB endpoint
-    if (props.enableEndpointDynamoDB) {
-      this.vpc.addGatewayEndpoint('DynamodbEndpoint', {
-        service: ec2.GatewayVpcEndpointAwsService.DYNAMODB,
-      });
-      const dynamodbEndpointSecurityGroup = new ec2.SecurityGroup(this, 'DynamodbEndpointSecurityGroup', {
-        vpc: this.vpc,
-      });
-      dynamodbEndpointSecurityGroup.addIngressRule(ec2.Peer.ipv4(this.vpc.vpcCidrBlock), ec2.Port.tcp(443));
-    }
+
+    // Add S3 endpoint by default. It is almost always useful and is free.
+    addGatewayEndpoint('S3');
+    // We don't always need DynamoDB endpoint, but it is free and can be useful.
+    addGatewayEndpoint('DynamoDb');
 
     new CfnOutput(this, 'VpcId', {
       value: this.vpc.vpcId,
