@@ -19,16 +19,16 @@ export class PipelineCdk extends Construct {
     super(scope, id);
 
     // Define a CodeCommit repository
-            const repository = codecommit.Repository.fromRepositoryName(this, props.repoName, props.repoName);
+    const repository = codecommit.Repository.fromRepositoryName(this, props.repoName, props.repoName);
 
-              // Create a pipeline
+    // Create a pipeline
 
-            this.pipeline = new pipelines.CodePipeline(this, props.pipelineName, {
-              synth: new pipelines.ShellStep('Synth', {
-                input: pipelines.CodePipelineSource.codeCommit(repository, props.repoBranch),
-                // Commands to run in the synth step
-                commands: ['cd examples/cdk-vpcbase','npm ci', 'npx cdk synth'],
-              }), // Add a closing parenthesis here
-            });
-        }
-      }
+    this.pipeline = new pipelines.CodePipeline(this, props.pipelineName, {
+      synth: new pipelines.ShellStep('Synth', {
+        input: pipelines.CodePipelineSource.codeCommit(repository, props.repoBranch),
+        // Commands to run in the synth step
+        commands: ['cd examples/cdk-vpcbase', 'npm ci', 'npx cdk synth'],
+      }), // Add a closing parenthesis here
+    });
+  }
+}
