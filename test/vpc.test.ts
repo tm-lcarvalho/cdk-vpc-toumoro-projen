@@ -11,8 +11,7 @@ test('VPCBase Construct creates a VPC with the specified CIDR block', () => {
     cidr: '10.0.0.0/16',
     maxAzs: 2,
     natGateways: 2,
-    enableEndpointS3: true,
-    enableEndpointDynamoDB: true,
+    enableEndpoints: ['s3', 'dynamodb'],
     // Specify the CIDR block for the VPC
     // You can pass any other required properties here
   });

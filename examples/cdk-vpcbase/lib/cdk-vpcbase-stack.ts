@@ -8,9 +8,8 @@ export class CdkVpcbaseStack extends cdk.Stack {
 
     new VpcBase(this, 'Vpc-CDK', {
       cidr: '10.0.1.0/16',
-      enableEndpointS3: false,
-      enableEndpointDynamoDB: false,
-    });
+      //enableEndpoints: [ 's3' , 'dynamodb' ],
+      });
 
     cdk.Tags.of(this).add('Project', 'CDK-VPC');
     cdk.Tags.of(this).add('Backup', 'true');

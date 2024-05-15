@@ -255,6 +255,8 @@ const pipelineProps: PipelineProps = { ... }
 | <code><a href="#cdk-constructs.PipelineProps.property.pipelineName">pipelineName</a></code> | <code>string</code> | The name of the pipeline. |
 | <code><a href="#cdk-constructs.PipelineProps.property.repoBranch">repoBranch</a></code> | <code>string</code> | The branch of the repository to use. |
 | <code><a href="#cdk-constructs.PipelineProps.property.repoName">repoName</a></code> | <code>string</code> | The name of the repository. |
+| <code><a href="#cdk-constructs.PipelineProps.property.primaryOutputDirectory">primaryOutputDirectory</a></code> | <code>string</code> | The primary output directory. |
+| <code><a href="#cdk-constructs.PipelineProps.property.synthCommand">synthCommand</a></code> | <code>string[]</code> | The command to run in the synth step. |
 
 ---
 
@@ -294,6 +296,30 @@ The name of the repository.
 
 ---
 
+##### `primaryOutputDirectory`<sup>Optional</sup> <a name="primaryOutputDirectory" id="cdk-constructs.PipelineProps.property.primaryOutputDirectory"></a>
+
+```typescript
+public readonly primaryOutputDirectory: string;
+```
+
+- *Type:* string
+
+The primary output directory.
+
+---
+
+##### `synthCommand`<sup>Optional</sup> <a name="synthCommand" id="cdk-constructs.PipelineProps.property.synthCommand"></a>
+
+```typescript
+public readonly synthCommand: string[];
+```
+
+- *Type:* string[]
+
+The command to run in the synth step.
+
+---
+
 
 ## Protocols <a name="Protocols" id="Protocols"></a>
 
@@ -309,8 +335,7 @@ Represents the configuration for a VPC.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-constructs.IVpcBase.property.cidr">cidr</a></code> | <code>string</code> | The CIDR block for the VPC. |
-| <code><a href="#cdk-constructs.IVpcBase.property.enableEndpointDynamoDB">enableEndpointDynamoDB</a></code> | <code>boolean</code> | Indicates whether to enable the DynamoDB endpoint for the VPC. |
-| <code><a href="#cdk-constructs.IVpcBase.property.enableEndpointS3">enableEndpointS3</a></code> | <code>boolean</code> | Indicates whether to enable the S3 endpoint for the VPC. |
+| <code><a href="#cdk-constructs.IVpcBase.property.enableEndpoints">enableEndpoints</a></code> | <code>string[]</code> | Indicates whether to enable the S3 endpoint for the VPC. |
 | <code><a href="#cdk-constructs.IVpcBase.property.maxAzs">maxAzs</a></code> | <code>number</code> | The maximum number of availability zones to use for the VPC. |
 | <code><a href="#cdk-constructs.IVpcBase.property.natGateways">natGateways</a></code> | <code>number</code> | The number of NAT gateways to create for the VPC. |
 
@@ -328,25 +353,13 @@ The CIDR block for the VPC.
 
 ---
 
-##### `enableEndpointDynamoDB`<sup>Optional</sup> <a name="enableEndpointDynamoDB" id="cdk-constructs.IVpcBase.property.enableEndpointDynamoDB"></a>
+##### `enableEndpoints`<sup>Optional</sup> <a name="enableEndpoints" id="cdk-constructs.IVpcBase.property.enableEndpoints"></a>
 
 ```typescript
-public readonly enableEndpointDynamoDB: boolean;
+public readonly enableEndpoints: string[];
 ```
 
-- *Type:* boolean
-
-Indicates whether to enable the DynamoDB endpoint for the VPC.
-
----
-
-##### `enableEndpointS3`<sup>Optional</sup> <a name="enableEndpointS3" id="cdk-constructs.IVpcBase.property.enableEndpointS3"></a>
-
-```typescript
-public readonly enableEndpointS3: boolean;
-```
-
-- *Type:* boolean
+- *Type:* string[]
 
 Indicates whether to enable the S3 endpoint for the VPC.
 
