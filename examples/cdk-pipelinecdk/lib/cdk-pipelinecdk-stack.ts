@@ -12,6 +12,16 @@ export class CdkPipelinecdkStack extends cdk.Stack {
       pipelineName: 'PipelineCdk',
       repoName: 'cdk-constructs',
       repoBranch: 'main',
+      primaryOutputDirectory: 'examples/cdk-vpcbase/cdk.out',
+      synthCommand: [ 'npm install', 
+                      'cd examples/cdk-vpcbase', 
+                      'npm install',
+                      'npm ci',
+                      'npm run build',
+                      'npm install -g aws-cdk', 
+                      'cdk synth', 
+                      'find . -iname cdk.out', 
+                      'pwd']
     });
   }
 }
