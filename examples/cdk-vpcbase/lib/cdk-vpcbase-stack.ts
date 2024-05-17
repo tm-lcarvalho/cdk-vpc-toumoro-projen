@@ -1,6 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { VpcBase } from '../../../src';
+import { Bucket } from 'aws-cdk-lib/aws-s3';
 
 export class CdkVpcbaseStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
