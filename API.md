@@ -131,14 +131,14 @@ A VPC construct that creates a VPC with public and private subnets.
 ```typescript
 import { VpcBase } from 'cdk-constructs'
 
-new VpcBase(scope: Construct, id: string, props: TouVpcProps)
+new VpcBase(scope: Construct, id: string, props: TmVpcProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-constructs.VpcBase.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#cdk-constructs.VpcBase.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-constructs.VpcBase.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-constructs.TouVpcProps">TouVpcProps</a></code> | *No description.* |
+| <code><a href="#cdk-constructs.VpcBase.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-constructs.TmVpcProps">TmVpcProps</a></code> | *No description.* |
 
 ---
 
@@ -156,7 +156,7 @@ new VpcBase(scope: Construct, id: string, props: TouVpcProps)
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-constructs.VpcBase.Initializer.parameter.props"></a>
 
-- *Type:* <a href="#cdk-constructs.TouVpcProps">TouVpcProps</a>
+- *Type:* <a href="#cdk-constructs.TmVpcProps">TmVpcProps</a>
 
 ---
 
@@ -869,51 +869,51 @@ The command to run in the synth step.
 
 ---
 
-### TouVpcProps <a name="TouVpcProps" id="cdk-constructs.TouVpcProps"></a>
+### TmVpcProps <a name="TmVpcProps" id="cdk-constructs.TmVpcProps"></a>
 
 Represents the configuration for a VPC.
 
-#### Initializer <a name="Initializer" id="cdk-constructs.TouVpcProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="cdk-constructs.TmVpcProps.Initializer"></a>
 
 ```typescript
-import { TouVpcProps } from 'cdk-constructs'
+import { TmVpcProps } from 'cdk-constructs'
 
-const touVpcProps: TouVpcProps = { ... }
+const tmVpcProps: TmVpcProps = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-constructs.TouVpcProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | Availability zones this VPC spans. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.cidr">cidr</a></code> | <code>string</code> | The CIDR range to use for the VPC, e.g. '10.0.0.0/16'. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.createInternetGateway">createInternetGateway</a></code> | <code>boolean</code> | If set to false then disable the creation of the default internet gateway. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | The default tenancy of instances launched into the VPC. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | Indicates whether the instances launched in the VPC get public DNS hostnames. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | Indicates whether the DNS resolution is supported for the VPC. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.flowLogs">flowLogs</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.FlowLogOptions}</code> | Flow logs to add to this VPC. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.gatewayEndpoints">gatewayEndpoints</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions}</code> | Gateway endpoints to add to this VPC. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.ipAddresses">ipAddresses</a></code> | <code>aws-cdk-lib.aws_ec2.IIpAddresses</code> | The Provider to use to allocate IPv4 Space to your VPC. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.ipProtocol">ipProtocol</a></code> | <code>aws-cdk-lib.aws_ec2.IpProtocol</code> | The protocol of the vpc. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.ipv6Addresses">ipv6Addresses</a></code> | <code>aws-cdk-lib.aws_ec2.IIpv6Addresses</code> | The Provider to use to allocate IPv6 Space to your VPC. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.maxAzs">maxAzs</a></code> | <code>number</code> | Define the maximum number of AZs to use in this region. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.natGatewayProvider">natGatewayProvider</a></code> | <code>aws-cdk-lib.aws_ec2.NatProvider</code> | What type of NAT provider to use. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.natGateways">natGateways</a></code> | <code>number</code> | The number of NAT Gateways/Instances to create. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.natGatewaySubnets">natGatewaySubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | Configures the subnets which will have NAT Gateways/Instances. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.reservedAzs">reservedAzs</a></code> | <code>number</code> | Define the number of AZs to reserve. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.restrictDefaultSecurityGroup">restrictDefaultSecurityGroup</a></code> | <code>boolean</code> | If set to true then the default inbound & outbound rules will be removed from the default security group. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.subnetConfiguration">subnetConfiguration</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetConfiguration[]</code> | Configure the subnets to build for each AZ. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.vpcName">vpcName</a></code> | <code>string</code> | The VPC name. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.vpnConnections">vpnConnections</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.VpnConnectionOptions}</code> | VPN connections to this VPC. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.vpnGateway">vpnGateway</a></code> | <code>boolean</code> | Indicates whether a VPN gateway should be created and attached to this VPC. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.vpnGatewayAsn">vpnGatewayAsn</a></code> | <code>number</code> | The private Autonomous System Number (ASN) for the VPN gateway. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.vpnRoutePropagation">vpnRoutePropagation</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection[]</code> | Where to propagate VPN routes. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.rangeCidr">rangeCidr</a></code> | <code>string</code> | The CIDR block for the VPC. |
-| <code><a href="#cdk-constructs.TouVpcProps.property.enableEndpoints">enableEndpoints</a></code> | <code>string[]</code> | Indicates whether to enable the S3 endpoint for the VPC. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | Availability zones this VPC spans. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.cidr">cidr</a></code> | <code>string</code> | The CIDR range to use for the VPC, e.g. '10.0.0.0/16'. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.createInternetGateway">createInternetGateway</a></code> | <code>boolean</code> | If set to false then disable the creation of the default internet gateway. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | The default tenancy of instances launched into the VPC. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | Indicates whether the instances launched in the VPC get public DNS hostnames. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | Indicates whether the DNS resolution is supported for the VPC. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.flowLogs">flowLogs</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.FlowLogOptions}</code> | Flow logs to add to this VPC. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.gatewayEndpoints">gatewayEndpoints</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions}</code> | Gateway endpoints to add to this VPC. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.ipAddresses">ipAddresses</a></code> | <code>aws-cdk-lib.aws_ec2.IIpAddresses</code> | The Provider to use to allocate IPv4 Space to your VPC. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.ipProtocol">ipProtocol</a></code> | <code>aws-cdk-lib.aws_ec2.IpProtocol</code> | The protocol of the vpc. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.ipv6Addresses">ipv6Addresses</a></code> | <code>aws-cdk-lib.aws_ec2.IIpv6Addresses</code> | The Provider to use to allocate IPv6 Space to your VPC. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.maxAzs">maxAzs</a></code> | <code>number</code> | Define the maximum number of AZs to use in this region. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.natGatewayProvider">natGatewayProvider</a></code> | <code>aws-cdk-lib.aws_ec2.NatProvider</code> | What type of NAT provider to use. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.natGateways">natGateways</a></code> | <code>number</code> | The number of NAT Gateways/Instances to create. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.natGatewaySubnets">natGatewaySubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | Configures the subnets which will have NAT Gateways/Instances. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.reservedAzs">reservedAzs</a></code> | <code>number</code> | Define the number of AZs to reserve. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.restrictDefaultSecurityGroup">restrictDefaultSecurityGroup</a></code> | <code>boolean</code> | If set to true then the default inbound & outbound rules will be removed from the default security group. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.subnetConfiguration">subnetConfiguration</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetConfiguration[]</code> | Configure the subnets to build for each AZ. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.vpcName">vpcName</a></code> | <code>string</code> | The VPC name. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.vpnConnections">vpnConnections</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.VpnConnectionOptions}</code> | VPN connections to this VPC. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.vpnGateway">vpnGateway</a></code> | <code>boolean</code> | Indicates whether a VPN gateway should be created and attached to this VPC. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.vpnGatewayAsn">vpnGatewayAsn</a></code> | <code>number</code> | The private Autonomous System Number (ASN) for the VPN gateway. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.vpnRoutePropagation">vpnRoutePropagation</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection[]</code> | Where to propagate VPN routes. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.rangeCidr">rangeCidr</a></code> | <code>string</code> | The CIDR block for the VPC. |
+| <code><a href="#cdk-constructs.TmVpcProps.property.enableEndpoints">enableEndpoints</a></code> | <code>string[]</code> | Indicates whether to enable the S3 endpoint for the VPC. |
 
 ---
 
-##### `availabilityZones`<sup>Optional</sup> <a name="availabilityZones" id="cdk-constructs.TouVpcProps.property.availabilityZones"></a>
+##### `availabilityZones`<sup>Optional</sup> <a name="availabilityZones" id="cdk-constructs.TmVpcProps.property.availabilityZones"></a>
 
 ```typescript
 public readonly availabilityZones: string[];
@@ -928,7 +928,7 @@ Specify this option only if you do not specify `maxAzs`.
 
 ---
 
-##### ~~`cidr`~~<sup>Optional</sup> <a name="cidr" id="cdk-constructs.TouVpcProps.property.cidr"></a>
+##### ~~`cidr`~~<sup>Optional</sup> <a name="cidr" id="cdk-constructs.TmVpcProps.property.cidr"></a>
 
 - *Deprecated:* Use ipAddresses instead
 
@@ -946,7 +946,7 @@ split across all subnets per Availability Zone.
 
 ---
 
-##### `createInternetGateway`<sup>Optional</sup> <a name="createInternetGateway" id="cdk-constructs.TouVpcProps.property.createInternetGateway"></a>
+##### `createInternetGateway`<sup>Optional</sup> <a name="createInternetGateway" id="cdk-constructs.TmVpcProps.property.createInternetGateway"></a>
 
 ```typescript
 public readonly createInternetGateway: boolean;
@@ -959,7 +959,7 @@ If set to false then disable the creation of the default internet gateway.
 
 ---
 
-##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-constructs.TouVpcProps.property.defaultInstanceTenancy"></a>
+##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-constructs.TmVpcProps.property.defaultInstanceTenancy"></a>
 
 ```typescript
 public readonly defaultInstanceTenancy: DefaultInstanceTenancy;
@@ -977,7 +977,7 @@ with Dedicated tenancy.
 
 ---
 
-##### `enableDnsHostnames`<sup>Optional</sup> <a name="enableDnsHostnames" id="cdk-constructs.TouVpcProps.property.enableDnsHostnames"></a>
+##### `enableDnsHostnames`<sup>Optional</sup> <a name="enableDnsHostnames" id="cdk-constructs.TmVpcProps.property.enableDnsHostnames"></a>
 
 ```typescript
 public readonly enableDnsHostnames: boolean;
@@ -993,7 +993,7 @@ but only if the enableDnsSupport attribute is also set to true.
 
 ---
 
-##### `enableDnsSupport`<sup>Optional</sup> <a name="enableDnsSupport" id="cdk-constructs.TouVpcProps.property.enableDnsSupport"></a>
+##### `enableDnsSupport`<sup>Optional</sup> <a name="enableDnsSupport" id="cdk-constructs.TmVpcProps.property.enableDnsSupport"></a>
 
 ```typescript
 public readonly enableDnsSupport: boolean;
@@ -1012,7 +1012,7 @@ VPC IPv4 network range plus two will succeed.
 
 ---
 
-##### `flowLogs`<sup>Optional</sup> <a name="flowLogs" id="cdk-constructs.TouVpcProps.property.flowLogs"></a>
+##### `flowLogs`<sup>Optional</sup> <a name="flowLogs" id="cdk-constructs.TmVpcProps.property.flowLogs"></a>
 
 ```typescript
 public readonly flowLogs: {[ key: string ]: FlowLogOptions};
@@ -1025,7 +1025,7 @@ Flow logs to add to this VPC.
 
 ---
 
-##### `gatewayEndpoints`<sup>Optional</sup> <a name="gatewayEndpoints" id="cdk-constructs.TouVpcProps.property.gatewayEndpoints"></a>
+##### `gatewayEndpoints`<sup>Optional</sup> <a name="gatewayEndpoints" id="cdk-constructs.TmVpcProps.property.gatewayEndpoints"></a>
 
 ```typescript
 public readonly gatewayEndpoints: {[ key: string ]: GatewayVpcEndpointOptions};
@@ -1038,7 +1038,7 @@ Gateway endpoints to add to this VPC.
 
 ---
 
-##### `ipAddresses`<sup>Optional</sup> <a name="ipAddresses" id="cdk-constructs.TouVpcProps.property.ipAddresses"></a>
+##### `ipAddresses`<sup>Optional</sup> <a name="ipAddresses" id="cdk-constructs.TmVpcProps.property.ipAddresses"></a>
 
 ```typescript
 public readonly ipAddresses: IIpAddresses;
@@ -1055,7 +1055,7 @@ Note this is specific to IPv4 addresses.
 
 ---
 
-##### `ipProtocol`<sup>Optional</sup> <a name="ipProtocol" id="cdk-constructs.TouVpcProps.property.ipProtocol"></a>
+##### `ipProtocol`<sup>Optional</sup> <a name="ipProtocol" id="cdk-constructs.TmVpcProps.property.ipProtocol"></a>
 
 ```typescript
 public readonly ipProtocol: IpProtocol;
@@ -1070,7 +1070,7 @@ Options are IPv4 only or dual stack.
 
 ---
 
-##### `ipv6Addresses`<sup>Optional</sup> <a name="ipv6Addresses" id="cdk-constructs.TouVpcProps.property.ipv6Addresses"></a>
+##### `ipv6Addresses`<sup>Optional</sup> <a name="ipv6Addresses" id="cdk-constructs.TmVpcProps.property.ipv6Addresses"></a>
 
 ```typescript
 public readonly ipv6Addresses: IIpv6Addresses;
@@ -1087,7 +1087,7 @@ Note this is specific to IPv6 addresses.
 
 ---
 
-##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-constructs.TouVpcProps.property.maxAzs"></a>
+##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-constructs.TmVpcProps.property.maxAzs"></a>
 
 ```typescript
 public readonly maxAzs: number;
@@ -1114,7 +1114,7 @@ Specify this option only if you do not specify `availabilityZones`.
 
 ---
 
-##### `natGatewayProvider`<sup>Optional</sup> <a name="natGatewayProvider" id="cdk-constructs.TouVpcProps.property.natGatewayProvider"></a>
+##### `natGatewayProvider`<sup>Optional</sup> <a name="natGatewayProvider" id="cdk-constructs.TmVpcProps.property.natGatewayProvider"></a>
 
 ```typescript
 public readonly natGatewayProvider: NatProvider;
@@ -1130,7 +1130,7 @@ may not be available in all AWS regions.
 
 ---
 
-##### `natGateways`<sup>Optional</sup> <a name="natGateways" id="cdk-constructs.TouVpcProps.property.natGateways"></a>
+##### `natGateways`<sup>Optional</sup> <a name="natGateways" id="cdk-constructs.TmVpcProps.property.natGateways"></a>
 
 ```typescript
 public readonly natGateways: number;
@@ -1150,7 +1150,7 @@ cross-AZ data traffic instead.
 
 ---
 
-##### `natGatewaySubnets`<sup>Optional</sup> <a name="natGatewaySubnets" id="cdk-constructs.TouVpcProps.property.natGatewaySubnets"></a>
+##### `natGatewaySubnets`<sup>Optional</sup> <a name="natGatewaySubnets" id="cdk-constructs.TmVpcProps.property.natGatewaySubnets"></a>
 
 ```typescript
 public readonly natGatewaySubnets: SubnetSelection;
@@ -1168,7 +1168,7 @@ Only necessary if you have more than one public subnet group.
 
 ---
 
-##### `reservedAzs`<sup>Optional</sup> <a name="reservedAzs" id="cdk-constructs.TouVpcProps.property.reservedAzs"></a>
+##### `reservedAzs`<sup>Optional</sup> <a name="reservedAzs" id="cdk-constructs.TmVpcProps.property.reservedAzs"></a>
 
 ```typescript
 public readonly reservedAzs: number;
@@ -1184,7 +1184,7 @@ resources are provisioned.
 
 ---
 
-##### `restrictDefaultSecurityGroup`<sup>Optional</sup> <a name="restrictDefaultSecurityGroup" id="cdk-constructs.TouVpcProps.property.restrictDefaultSecurityGroup"></a>
+##### `restrictDefaultSecurityGroup`<sup>Optional</sup> <a name="restrictDefaultSecurityGroup" id="cdk-constructs.TmVpcProps.property.restrictDefaultSecurityGroup"></a>
 
 ```typescript
 public readonly restrictDefaultSecurityGroup: boolean;
@@ -1197,7 +1197,7 @@ If set to true then the default inbound & outbound rules will be removed from th
 
 ---
 
-##### `subnetConfiguration`<sup>Optional</sup> <a name="subnetConfiguration" id="cdk-constructs.TouVpcProps.property.subnetConfiguration"></a>
+##### `subnetConfiguration`<sup>Optional</sup> <a name="subnetConfiguration" id="cdk-constructs.TmVpcProps.property.subnetConfiguration"></a>
 
 ```typescript
 public readonly subnetConfiguration: SubnetConfiguration[];
@@ -1238,7 +1238,7 @@ new ec2.Vpc(this, 'VPC', {
 
 ---
 
-##### `vpcName`<sup>Optional</sup> <a name="vpcName" id="cdk-constructs.TouVpcProps.property.vpcName"></a>
+##### `vpcName`<sup>Optional</sup> <a name="vpcName" id="cdk-constructs.TmVpcProps.property.vpcName"></a>
 
 ```typescript
 public readonly vpcName: string;
@@ -1253,7 +1253,7 @@ Since the VPC resource doesn't support providing a physical name, the value prov
 
 ---
 
-##### `vpnConnections`<sup>Optional</sup> <a name="vpnConnections" id="cdk-constructs.TouVpcProps.property.vpnConnections"></a>
+##### `vpnConnections`<sup>Optional</sup> <a name="vpnConnections" id="cdk-constructs.TmVpcProps.property.vpnConnections"></a>
 
 ```typescript
 public readonly vpnConnections: {[ key: string ]: VpnConnectionOptions};
@@ -1266,7 +1266,7 @@ VPN connections to this VPC.
 
 ---
 
-##### `vpnGateway`<sup>Optional</sup> <a name="vpnGateway" id="cdk-constructs.TouVpcProps.property.vpnGateway"></a>
+##### `vpnGateway`<sup>Optional</sup> <a name="vpnGateway" id="cdk-constructs.TmVpcProps.property.vpnGateway"></a>
 
 ```typescript
 public readonly vpnGateway: boolean;
@@ -1279,7 +1279,7 @@ Indicates whether a VPN gateway should be created and attached to this VPC.
 
 ---
 
-##### `vpnGatewayAsn`<sup>Optional</sup> <a name="vpnGatewayAsn" id="cdk-constructs.TouVpcProps.property.vpnGatewayAsn"></a>
+##### `vpnGatewayAsn`<sup>Optional</sup> <a name="vpnGatewayAsn" id="cdk-constructs.TmVpcProps.property.vpnGatewayAsn"></a>
 
 ```typescript
 public readonly vpnGatewayAsn: number;
@@ -1292,7 +1292,7 @@ The private Autonomous System Number (ASN) for the VPN gateway.
 
 ---
 
-##### `vpnRoutePropagation`<sup>Optional</sup> <a name="vpnRoutePropagation" id="cdk-constructs.TouVpcProps.property.vpnRoutePropagation"></a>
+##### `vpnRoutePropagation`<sup>Optional</sup> <a name="vpnRoutePropagation" id="cdk-constructs.TmVpcProps.property.vpnRoutePropagation"></a>
 
 ```typescript
 public readonly vpnRoutePropagation: SubnetSelection[];
@@ -1305,7 +1305,7 @@ Where to propagate VPN routes.
 
 ---
 
-##### `rangeCidr`<sup>Required</sup> <a name="rangeCidr" id="cdk-constructs.TouVpcProps.property.rangeCidr"></a>
+##### `rangeCidr`<sup>Required</sup> <a name="rangeCidr" id="cdk-constructs.TmVpcProps.property.rangeCidr"></a>
 
 ```typescript
 public readonly rangeCidr: string;
@@ -1317,7 +1317,7 @@ The CIDR block for the VPC.
 
 ---
 
-##### `enableEndpoints`<sup>Optional</sup> <a name="enableEndpoints" id="cdk-constructs.TouVpcProps.property.enableEndpoints"></a>
+##### `enableEndpoints`<sup>Optional</sup> <a name="enableEndpoints" id="cdk-constructs.TmVpcProps.property.enableEndpoints"></a>
 
 ```typescript
 public readonly enableEndpoints: string[];
