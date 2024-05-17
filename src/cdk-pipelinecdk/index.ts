@@ -60,6 +60,7 @@ export class PipelineCdk extends Construct {
       synth: new pipelines.ShellStep('Synth', {
         input: pipelines.CodePipelineSource.codeCommit(repository, props.repoBranch),
         // Commands to run in the synth step
+        installCommands: ['npm install', 'npm ci', 'npm install -g aws-cdk'],
         commands: props.synthCommand ?? ['npm install', 'npm ci', 'npm install -g aws-cdk', 'cdk synth'],
         primaryOutputDirectory: props.primaryOutputDirectory ?? 'cdk.out',
       }), // Add a closing parenthesis here
