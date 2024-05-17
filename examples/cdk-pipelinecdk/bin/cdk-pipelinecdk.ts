@@ -2,8 +2,11 @@
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import { CdkPipelinecdkStack } from '../lib/cdk-pipelinecdk-stack';
+import { AwsSolutionsChecks } from 'cdk-nag';
+import { Aspects } from 'aws-cdk-lib';
 
 const app = new cdk.App();
+Aspects.of(app).add(new AwsSolutionsChecks({ verbose: true }))
 new CdkPipelinecdkStack(app, 'CdkPipelinecdkStack', {
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
