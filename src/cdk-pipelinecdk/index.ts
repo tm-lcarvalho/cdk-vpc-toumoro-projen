@@ -11,22 +11,18 @@ export interface PipelineProps {
    * The name of the pipeline.
    */
   readonly pipelineName: string;
-
   /**
    * The name of the repository.
    */
   readonly repoName: string;
-
   /**
    * The branch of the repository to use.
    */
   readonly repoBranch: string;
-
   /**
    * The command to run in the synth step.
    */
   readonly synthCommand?: Array<string>;
-
   /**
    * The primary output directory.
    */
@@ -55,7 +51,6 @@ export class PipelineCdk extends Construct {
     const repository = codecommit.Repository.fromRepositoryName(this, props.repoName, props.repoName);
 
     // Create a pipeline
-
     this.pipeline = new pipelines.CodePipeline(this, props.pipelineName, {
       synth: new pipelines.ShellStep('Synth', {
         input: pipelines.CodePipelineSource.codeCommit(repository, props.repoBranch),
