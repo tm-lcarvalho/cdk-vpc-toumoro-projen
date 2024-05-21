@@ -45,8 +45,8 @@ export class VpcBase extends ec2.Vpc {
   ) {
     const defautProps: ec2.VpcProps = {
       ipAddresses: ec2.IpAddresses.cidr(props.rangeCidr), // The CIDR block for the VPC
-      maxAzs: props.maxAzs ?? 2,
-      natGateways: props.natGateways !== undefined ? props.natGateways : 1, // Number of NAT gateways (for private subnets): props.natGateways | 1, // Number of NAT gateways (for private subnets)
+      maxAzs: 2,
+      natGateways: 1, // Number of NAT gateways (for private subnets): props.natGateways | 1, // Number of NAT gateways (for private subnets)
       enableDnsHostnames: true,
       enableDnsSupport: true,
       subnetConfiguration: [
