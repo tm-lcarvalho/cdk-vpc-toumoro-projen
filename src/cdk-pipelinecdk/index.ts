@@ -6,59 +6,51 @@ import { Construct } from 'constructs';
 // https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.pipelines-readme.html
 
 // Define the properties for the Pipeline construct
-export interface PipelineProps {
-  /**
-   * The name of the pipeline.
-   */
-  readonly pipelineName: string;
+export interface TmPipelineProps extends pipelines.CodePipelineProps {
+//export interface TmPipelineProps extends pipelines.CodePipelineProps {
   /**
    * The name of the repository.
    */
   readonly repoName: string;
   /**
-   * The branch of the repository to use.
+   * The branch of the repository.
    */
   readonly repoBranch: string;
-  /**
-   * The command to run in the synth step.
-   */
-  readonly synthCommand?: Array<string>;
-  /**
-   * The primary output directory.
-   */
-  readonly primaryOutputDirectory?: string;
 }
 
 /**
  * A CDK construct that creates a CodePipeline.
  */
-export class PipelineCdk extends Construct {
+export class PipelineCdk extends pipelines.CodePipeline {
   /**
-   * The CodePipeline created by the construct.
+   * The pipeline created by the construct.
    */
-  public readonly pipeline: pipelines.CodePipeline;
-  /**
-   * Constructs a new instance of the PipelineCdk class.
-   * @param scope The parent construct.
-   * @param id The name of the construct.
-   * @param props The properties for the construct.
-   * @default - No default properties.
-   *  */
-  constructor(scope: Construct, id: string, props: PipelineProps) {
-    super(scope, id);
 
-    // Define a CodeCommit repository
-    const repository = codecommit.Repository.fromRepositoryName(this, props.repoName, props.repoName);
+  constructor(
+    scope: Construct,
+    id: string,
+    props: TmPipelineProps,
+   ) {
+    //const repository = codecommit.Repository.fromRepositoryName(this, props.repoName, props.repoName);
 
-    // Create a pipeline
-    this.pipeline = new pipelines.CodePipeline(this, props.pipelineName, {
+    const defaultProps: pipelines.CodePipeline = {
       synth: new pipelines.ShellStep('Synth', {
-        input: pipelines.CodePipelineSource.codeCommit(repository, props.repoBranch),
+        input: pipelines.CodePipelineSource.codeCommit(
+          codecommit.Repository.fromRepositoryName(
+            scope,
+            props.repoName,
+            props.repoName
+          ),
+          props.repoBranch
+        ),
         // Commands to run in the synth step
         installCommands: ['npm install', 'npm ci', 'npm install -g aws-cdk'],
-        commands: props.synthCommand ?? ['npm install', 'npm ci', 'npm install -g aws-cdk', 'cdk synth'],
-        primaryOutputDirectory: props.primaryOutputDirectory ?? 'cdk.out',
-      }), // Add a closing parenthesis here
-    });
+        commands: ['npm install', 'npm ci', 'npm install -g aws-cdk', 'cdk synth'],
+      }),
+    };
+
+    const mergedProps = { ...defaultProps, ...props };
+    super(scope, id, mergedProps);
+    //super(scope, id, mergedProps);
   }
 }
