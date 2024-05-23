@@ -122,6 +122,111 @@ The CodePipeline created by the construct.
 ---
 
 
+### RdsGlobal <a name="RdsGlobal" id="cdk-constructs.RdsGlobal"></a>
+
+#### Initializers <a name="Initializers" id="cdk-constructs.RdsGlobal.Initializer"></a>
+
+```typescript
+import { RdsGlobal } from 'cdk-constructs'
+
+new RdsGlobal(scope: Construct, id: string, props: GlobalClusterProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-constructs.RdsGlobal.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | The parent construct. |
+| <code><a href="#cdk-constructs.RdsGlobal.Initializer.parameter.id">id</a></code> | <code>string</code> | The name of the construct. |
+| <code><a href="#cdk-constructs.RdsGlobal.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-constructs.GlobalClusterProps">GlobalClusterProps</a></code> | The properties for the construct. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-constructs.RdsGlobal.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent construct.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-constructs.RdsGlobal.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+The name of the construct.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-constructs.RdsGlobal.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-constructs.GlobalClusterProps">GlobalClusterProps</a>
+
+The properties for the construct.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-constructs.RdsGlobal.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-constructs.RdsGlobal.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-constructs.RdsGlobal.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-constructs.RdsGlobal.isConstruct"></a>
+
+```typescript
+import { RdsGlobal } from 'cdk-constructs'
+
+RdsGlobal.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-constructs.RdsGlobal.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-constructs.RdsGlobal.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-constructs.RdsGlobal.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+
 ### VpcBase <a name="VpcBase" id="cdk-constructs.VpcBase"></a>
 
 A VPC construct that creates a VPC with public and private subnets.
@@ -786,6 +891,89 @@ The default subnet configuration if natGateways specified to be 0.
 ---
 
 ## Structs <a name="Structs" id="Structs"></a>
+
+### GlobalClusterProps <a name="GlobalClusterProps" id="cdk-constructs.GlobalClusterProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-constructs.GlobalClusterProps.Initializer"></a>
+
+```typescript
+import { GlobalClusterProps } from 'cdk-constructs'
+
+const globalClusterProps: GlobalClusterProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-constructs.GlobalClusterProps.property.engine">engine</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-constructs.GlobalClusterProps.property.engineVersion">engineVersion</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-constructs.GlobalClusterProps.property.globalClusterIdentifier">globalClusterIdentifier</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-constructs.GlobalClusterProps.property.sourceDbClusterIdentifier">sourceDbClusterIdentifier</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-constructs.GlobalClusterProps.property.deletionProtection">deletionProtection</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-constructs.GlobalClusterProps.property.storageEncrypted">storageEncrypted</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `engine`<sup>Required</sup> <a name="engine" id="cdk-constructs.GlobalClusterProps.property.engine"></a>
+
+```typescript
+public readonly engine: string;
+```
+
+- *Type:* string
+
+---
+
+##### `engineVersion`<sup>Required</sup> <a name="engineVersion" id="cdk-constructs.GlobalClusterProps.property.engineVersion"></a>
+
+```typescript
+public readonly engineVersion: string;
+```
+
+- *Type:* string
+
+---
+
+##### `globalClusterIdentifier`<sup>Required</sup> <a name="globalClusterIdentifier" id="cdk-constructs.GlobalClusterProps.property.globalClusterIdentifier"></a>
+
+```typescript
+public readonly globalClusterIdentifier: string;
+```
+
+- *Type:* string
+
+---
+
+##### `sourceDbClusterIdentifier`<sup>Required</sup> <a name="sourceDbClusterIdentifier" id="cdk-constructs.GlobalClusterProps.property.sourceDbClusterIdentifier"></a>
+
+```typescript
+public readonly sourceDbClusterIdentifier: string;
+```
+
+- *Type:* string
+
+---
+
+##### `deletionProtection`<sup>Optional</sup> <a name="deletionProtection" id="cdk-constructs.GlobalClusterProps.property.deletionProtection"></a>
+
+```typescript
+public readonly deletionProtection: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `storageEncrypted`<sup>Optional</sup> <a name="storageEncrypted" id="cdk-constructs.GlobalClusterProps.property.storageEncrypted"></a>
+
+```typescript
+public readonly storageEncrypted: boolean;
+```
+
+- *Type:* boolean
+
+---
 
 ### PipelineProps <a name="PipelineProps" id="cdk-constructs.PipelineProps"></a>
 
