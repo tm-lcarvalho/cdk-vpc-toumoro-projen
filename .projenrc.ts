@@ -1,4 +1,5 @@
 import { awscdk } from 'projen';
+import { JobPermission } from 'projen/lib/github/workflows-model';
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'tm-lcarvalho',
   authorAddress: 'lucio.carvalho@toumoro.com',
@@ -25,5 +26,43 @@ const project = new awscdk.AwsCdkConstructLibrary({
   majorVersion: 1,
   //stability: 'experimental',
 });
+
+const workflow = project.github?.tryFindWorkflow('pull-request-lint');
+if (workflow) {
+  // Modify the types in the existing workflow for action-semantic-pull-request
+  workflow.on({
+    pullRequestTarget: {
+      types: [
+        'labeled',
+        'opened',
+        'synchronize',
+        'reopened',
+        'ready_for_review',
+        'edited',
+      ],
+    },
+  });
+
+  workflow.addJobs({
+    validate: {
+      name: 'Validate PR title',
+      runsOn: ['ubuntu-latest'],
+      permissions: {
+        pullRequests: JobPermission.WRITE,
+      },
+      steps: [
+        {
+          uses: 'amannn/action-semantic-pull-request@v5.4.0',
+          env: {
+            GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}',
+          },
+          with: {
+            types: 'build,ci,docs,feat,fix,perf,refactor,style,test',
+          },
+        },
+      ],
+    },
+  });
+}
 
 project.synth();
