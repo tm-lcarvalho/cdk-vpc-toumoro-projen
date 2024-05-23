@@ -1,5 +1,6 @@
 import { CfnOutput } from 'aws-cdk-lib';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
+import * as logs from 'aws-cdk-lib/aws-logs';
 import { Construct } from 'constructs';
 
 /**
@@ -72,6 +73,15 @@ export class VpcBase extends ec2.Vpc {
 
     super(scope, id, mergedProps);
 
+    const logGroup = new logs.LogGroup(this, 'FlowLogsLogGroup', {
+      retention: logs.RetentionDays.ONE_MONTH,
+    });
+
+    this.addFlowLog('FlowLog', {
+      destination: ec2.FlowLogDestination.toCloudWatchLogs(logGroup),
+      trafficType: ec2.FlowLogTrafficType.ALL, // Capture all traffic
+    });
+
     for (const service of props.enableEndpoints ?? [] ) {
       this.tmAddGatewayEndpoint(service);
     }
@@ -99,5 +109,4 @@ export class VpcBase extends ec2.Vpc {
       ec2.Port.tcp(443),
     );
   }
-
 }
