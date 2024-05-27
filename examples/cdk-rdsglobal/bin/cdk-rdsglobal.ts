@@ -10,7 +10,7 @@ const app = new cdk.App();
 const vpcStack = new CdkVpcbaseStack(app, 'CdkVpcbaseStack');
 
 new CdkRdsglobalStack(app, 'CdkRdsglobalStack', {
-  vpc: vpcStack.vpc.vpc,
+  vpc: vpcStack.vpc,
 });
 
 app.synth();
