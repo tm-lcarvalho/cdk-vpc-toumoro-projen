@@ -20,6 +20,10 @@
       "type": "build"
     },
     {
+      "name": "cdk-nag",
+      "type": "build"
+    },
+    {
       "name": "eslint-import-resolver-typescript",
       "type": "build"
     },
