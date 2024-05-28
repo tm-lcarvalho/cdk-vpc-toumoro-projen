@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
-import { CdkRdsglobalStack } from '../lib/cdk-rdsglobal-stack';
+import { CdkRdsglobalStack } from '../lib/rdsAuroraMysqlServerlessStack';
 import { CdkVpcbaseStack } from '../lib/vpcBaseStack';
 import { BastionStack } from '../lib/bastionStack';
 import { AwsSolutionsChecks, NagSuppressions } from 'cdk-nag';
