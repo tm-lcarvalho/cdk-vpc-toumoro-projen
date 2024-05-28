@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
-import { CdkVpcbaseStack } from '../lib/cdk-vpcbase-stack';
+import { CdkVpcbaseStack } from '../lib/vpcbasestack';
 import { AwsSolutionsChecks } from 'cdk-nag';
 import { Aspects } from 'aws-cdk-lib';
 

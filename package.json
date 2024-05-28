@@ -1,5 +1,5 @@
 {
-  "name": "cdk-constructs",
+  "name": "tm-cdk-constructs",
   "description": "A CDK construct library",
   "repository": {
     "type": "git",
@@ -54,7 +54,7 @@
     "jsii-docgen": "^10.3.25",
     "jsii-pacmak": "^1.96.0",
     "jsii-rosetta": "~5.2.0",
-    "projen": "^0.80.15",
+    "projen": "^0.80.20",
     "standard-version": "^9",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
@@ -118,8 +118,8 @@
     "outdir": "dist",
     "targets": {
       "python": {
-        "distName": "cdk-constructs",
-        "module": "cdk-constructs"
+        "distName": "tm-cdk-constructs",
+        "module": "tm-cdk-constructs"
       }
     },
     "tsc": {

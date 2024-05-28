@@ -1,1 +1,1 @@
-export * from './cdk-vpc-base';
+export * from './vpcbase';
