@@ -1,8 +1,8 @@
 {
-  "name": "cdk-pipelinecdk",
+  "name": "pipelinecdk",
   "version": "0.1.0",
   "bin": {
-    "cdk-pipelinecdk": "bin/cdk-pipelinecdk.js"
+    "cdk-pipelinecdk": "bin/pipelinecdk.js"
   },
   "scripts": {
     "build": "tsc",
