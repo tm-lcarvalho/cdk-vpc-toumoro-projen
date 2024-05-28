@@ -33,7 +33,7 @@ export interface TmVpcProps extends ec2.VpcProps {
 /**
  * A VPC construct that creates a VPC with public and private subnets.
  */
-export class VpcBase extends ec2.Vpc {
+export class TmVpcBase extends ec2.Vpc {
   /**
    * The VPC created by the construct.
    */

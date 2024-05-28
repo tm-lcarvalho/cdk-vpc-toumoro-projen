@@ -20,6 +20,10 @@
       "type": "build"
     },
     {
+      "name": "cdk",
+      "type": "build"
+    },
+    {
       "name": "cdk-nag",
       "type": "build"
     },

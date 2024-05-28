@@ -1,18 +1,12 @@
 import { awscdk } from 'projen';
 
-/*
-const examples = new awscdk.AwsCdkConstructLibrary({
-
-});
-*/
-
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'tm-lcarvalho',
   authorAddress: 'lucio.carvalho@toumoro.com',
   cdkVersion: '2.143.0',
   defaultReleaseBranch: 'main',
   jsiiVersion: '~5.2.0',
-  name: 'cdk-constructs',
+  name: 'tm-cdk-constructs',
   projenrcTs: true,
   repositoryUrl: 'https://github.com/tm-lcarvalho/cdk-constructs.git',
   description: 'A CDK construct library',
@@ -21,19 +15,16 @@ const project = new awscdk.AwsCdkConstructLibrary({
   npmignore: ['examples'],
   devDeps: [
     'cdk-nag',
+    'cdk',
   ],
 
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
   npmProvenance: false,
   publishToPypi: {
-    distName: 'cdk-constructs',
-    module: 'cdk-constructs',
+    distName: 'tm-cdk-constructs',
+    module: 'tm-cdk-constructs',
   },
   majorVersion: 1,
-  //stability: 'experimental',
+  stability: 'experimental',
 });
 
 project.synth();

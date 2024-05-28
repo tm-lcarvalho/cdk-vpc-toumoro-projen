@@ -1,8 +1,8 @@
 {
-  "name": "cdk-pipelinecdk",
+  "name": "cdk-vpcbase",
   "version": "0.1.0",
   "bin": {
-    "cdk-pipelinecdk": "bin/cdk-pipelinecdk.js"
+    "cdk-vpcbase": "bin/cdk-vpcbase.js"
   },
   "scripts": {
     "build": "tsc",
