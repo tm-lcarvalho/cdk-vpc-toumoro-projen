@@ -2,14 +2,14 @@ import { awscdk } from 'projen';
 
 /*
 const examples = new awscdk.AwsCdkConstructLibrary({
-  
+
 });
 */
 
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'tm-lcarvalho',
   authorAddress: 'lucio.carvalho@toumoro.com',
-  cdkVersion: '^2.140.0',
+  cdkVersion: '2.143.0',
   defaultReleaseBranch: 'main',
   jsiiVersion: '~5.2.0',
   name: 'cdk-constructs',
@@ -20,7 +20,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   gitignore: ['.venv', '.env'],
   npmignore: ['examples'],
   devDeps: [
-    'cdk-nag'
+    'cdk-nag',
   ],
 
   // deps: [],                /* Runtime dependencies of this module. */

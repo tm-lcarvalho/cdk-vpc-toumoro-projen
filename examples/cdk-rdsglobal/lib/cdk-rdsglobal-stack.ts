@@ -3,6 +3,7 @@ import { Construct } from 'constructs';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import * as rds from 'aws-cdk-lib/aws-rds';
 import * as ssm from 'aws-cdk-lib/aws-ssm';
+import { CfnOutput } from 'aws-cdk-lib';
 
 interface RdsGlobalProps extends cdk.StackProps {
   vpc: ec2.IVpc;
@@ -40,12 +41,13 @@ export class CdkRdsglobalStack extends cdk.Stack {
       },
       securityGroups: [securityGroup],
       monitoringInterval: cdk.Duration.seconds(60),
-      //PerformanceInsightRetention: rds.PerformanceInsightRetention.LONG_TERM,
+      //EnablePerformanceInsights: true,
+      //PerformanceInsightRetention: rds.PerformanceInsightRetention.DEFAULT,
       //backupRetention: cdk.Duration.days(7),
     });
 
-    cluster.clusterArn;
     cluster.connections.allowFrom(props.bastionHost, ec2.Port.tcp(3306));
+    
 
     cluster.metricServerlessDatabaseCapacity({
       period: cdk.Duration.minutes(10),
@@ -68,11 +70,18 @@ export class CdkRdsglobalStack extends cdk.Stack {
       stringValue: cluster.clusterArn,
     });
 
-    new ssm.StringParameter(this, 'clusterRdsHostname', {
+    new ssm.StringParameter(this, 'clusterRdsWrite', {
       // description: 'Some user-friendly description',
       // name: 'ParameterName',
-      parameterName: '/RDS/Endpoint/Hostname',
+      parameterName: '/RDS/Endpoint/Write',
       stringValue: cluster.clusterEndpoint.hostname,
+    });
+
+    new ssm.StringParameter(this, 'clusterRdsRead', {
+      // description: 'Some user-friendly description',
+      // name: 'ParameterName',
+      parameterName: '/RDS/Endpoint/Read',
+      stringValue: cluster.clusterReadEndpoint.hostname,
     });
 
     new rds.CfnGlobalCluster(this, 'MyCfnGlobalCluster',{
@@ -81,5 +90,21 @@ export class CdkRdsglobalStack extends cdk.Stack {
       sourceDbClusterIdentifier: cluster.clusterArn,
     });
     
+
+    new CfnOutput(this, 'ClusterWriteEndpoint', {
+      value: cluster.clusterEndpoint.hostname,
+      description: 'Cluster Write Endpoint',
+    });
+
+    new CfnOutput(this, 'ClusterReadEndpoint', {
+      value: cluster.clusterReadEndpoint.hostname,
+      description: 'Cluster Read Endpoint',
+    });
+
+    new CfnOutput(this, 'ClusterArnIdentifier', {
+      value: cluster.clusterArn,
+      description: 'Cluster ARM Identifier',
+    });
+
   }
 }
