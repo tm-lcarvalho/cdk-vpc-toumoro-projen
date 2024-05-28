@@ -1,8 +1,8 @@
 {
-  "name": "cdk-vpcbase",
+  "name": "vpcbase",
   "version": "0.1.0",
   "bin": {
-    "cdk-vpcbase": "bin/cdk-vpcbase.js"
+    "vpcbase": "bin/vpcbase.js"
   },
   "scripts": {
     "build": "tsc",

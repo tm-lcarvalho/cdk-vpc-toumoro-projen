@@ -1,8 +1,8 @@
 {
-  "name": "cdk-rdsglobal",
+  "name": "rdsauroramysqlserverless",
   "version": "0.1.0",
   "bin": {
-    "cdk-rdsglobal": "bin/cdk-rdsglobal.js"
+    "rdsauroramysqlserverless": "bin/rdsauroramysqlserverless.js"
   },
   "scripts": {
     "build": "tsc",
