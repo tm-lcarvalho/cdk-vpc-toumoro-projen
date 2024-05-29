@@ -14,7 +14,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   gitignore: ['.venv', '.env'],
   npmignore: ['examples'],
   devDeps: [
-    'cdk-nag',
     'cdk',
   ],
 
