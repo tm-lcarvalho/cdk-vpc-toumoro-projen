@@ -18,13 +18,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'cdk',
   ],
 
-<<<<<<< HEAD
-=======
   deps: ['cdk-nag'], /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   // devDeps: [],             /* Build dependencies for this module. */
   // packageName: undefined,  /* The "name" in package.json. */
->>>>>>> main
   npmProvenance: false,
   publishToPypi: {
     distName: 'tm-cdk-constructs',
