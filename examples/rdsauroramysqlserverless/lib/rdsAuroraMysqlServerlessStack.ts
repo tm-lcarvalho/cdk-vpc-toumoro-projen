@@ -3,25 +3,25 @@ import { Construct } from 'constructs';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import * as rds from 'aws-cdk-lib/aws-rds';
 import * as ssm from 'aws-cdk-lib/aws-ssm';
-import { TmRsAuroraMysqlServerless } from '../../../src';
+import { TmRdsAuroraMysqlServerless } from '../../../src';
+import { NagSuppressions } from 'cdk-nag';
 
-interface RdsGlobalProps extends cdk.StackProps {
+interface TmRdsAuroraMysqlServerlessStackProps extends cdk.StackProps {
   vpc: ec2.IVpc;
   bastionHost: ec2.SecurityGroup;
+  enableGlobal?: boolean;
 }
 
-export class CdkRdsglobalStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props: RdsGlobalProps) {
+export class TmRdsAuroraMysqlServerlessStack extends cdk.Stack {
+  constructor(scope: Construct, id: string, props: TmRdsAuroraMysqlServerlessStackProps) {
     super(scope, id, props);
 
-    const cluster = new TmRsAuroraMysqlServerless(this, 'Database', {
+    const cluster = new TmRdsAuroraMysqlServerless(this, 'Database', {
       engine: rds.DatabaseClusterEngine.auroraMysql({ 
         version: rds.AuroraMysqlEngineVersion.VER_3_05_2,
       }),
-      serverlessV2MinCapacity: 0.5,
-      serverlessV2MaxCapacity: 2,
       vpc: props.vpc,
-      enableGlobal: true,
+      enableGlobal: props.enableGlobal,
     });
 
     cluster.connections.allowFrom(props.bastionHost, ec2.Port.tcp(3306));
@@ -38,7 +38,6 @@ export class CdkRdsglobalStack extends cdk.Stack {
       evaluationPeriods: 3,
       threshold: 90,
     });
-
 
     new ssm.StringParameter(this, 'clusterRdsArn', {
       parameterName: '/RDS/Cluster/ARN',

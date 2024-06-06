@@ -80,6 +80,7 @@ export class TmVpcBase extends ec2.Vpc {
       value: this.vpcId,
       description: 'VPC ID',
     });
+
   }
 
   private tmAddGatewayEndpoint(service: string) {
