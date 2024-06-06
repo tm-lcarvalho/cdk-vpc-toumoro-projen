@@ -3,44 +3,25 @@ import { Construct } from 'constructs';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import * as rds from 'aws-cdk-lib/aws-rds';
 import * as ssm from 'aws-cdk-lib/aws-ssm';
-import { CfnOutput } from 'aws-cdk-lib';
+import { TmRdsAuroraMysqlServerless } from '../../../src';
+import { NagSuppressions } from 'cdk-nag';
 
-interface RdsGlobalProps extends cdk.StackProps {
+interface TmRdsAuroraMysqlServerlessStackProps extends cdk.StackProps {
   vpc: ec2.IVpc;
   bastionHost: ec2.SecurityGroup;
+  enableGlobal?: boolean;
 }
 
-export class CdkRdsglobalStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props: RdsGlobalProps) {
+export class TmRdsAuroraMysqlServerlessStack extends cdk.Stack {
+  constructor(scope: Construct, id: string, props: TmRdsAuroraMysqlServerlessStackProps) {
     super(scope, id, props);
 
-    const securityGroup = new ec2.SecurityGroup(this, 'RdsSecurityGroup', {
-      vpc: props.vpc,
-      allowAllOutbound: true,
-      securityGroupName: 'rds-security-group',
-    });
-
-    const cluster = new rds.DatabaseCluster(this, 'Database', {
+    const cluster = new TmRdsAuroraMysqlServerless(this, 'Database', {
       engine: rds.DatabaseClusterEngine.auroraMysql({ 
         version: rds.AuroraMysqlEngineVersion.VER_3_05_2,
       }),
-      writer: rds.ClusterInstance.serverlessV2('writer',{
-        performanceInsightRetention: rds.PerformanceInsightRetention.DEFAULT,
-      }),
-      serverlessV2MinCapacity: 8,
-      serverlessV2MaxCapacity: 8,
-      readers: [
-        rds.ClusterInstance.serverlessV2('reader',{ 
-          scaleWithWriter: true,
-          performanceInsightRetention: rds.PerformanceInsightRetention.DEFAULT,
-        }),
-      ],
       vpc: props.vpc,
-      vpcSubnets: {
-        subnetType: ec2.SubnetType.PRIVATE_ISOLATED,
-      },
-      securityGroups: [securityGroup],
-      monitoringInterval: cdk.Duration.seconds(60),
+      enableGlobal: props.enableGlobal,
     });
 
     cluster.connections.allowFrom(props.bastionHost, ec2.Port.tcp(3306));
@@ -58,9 +39,8 @@ export class CdkRdsglobalStack extends cdk.Stack {
       threshold: 90,
     });
 
-
     new ssm.StringParameter(this, 'clusterRdsArn', {
-      parameterName: '/RDS/Arn/Cluster',
+      parameterName: '/RDS/Cluster/ARN',
       stringValue: cluster.clusterArn,
     });
 
@@ -72,28 +52,6 @@ export class CdkRdsglobalStack extends cdk.Stack {
     new ssm.StringParameter(this, 'clusterRdsRead', {
       parameterName: '/RDS/Endpoint/Read',
       stringValue: cluster.clusterReadEndpoint.hostname,
-    });
-
-    new rds.CfnGlobalCluster(this, 'MyCfnGlobalCluster',{
-      deletionProtection: false,
-      globalClusterIdentifier: 'globalClusterIdentifier',
-      sourceDbClusterIdentifier: cluster.clusterArn,
-    });
-    
-
-    new CfnOutput(this, 'ClusterWriteEndpoint', {
-      value: cluster.clusterEndpoint.hostname,
-      description: 'Cluster Write Endpoint',
-    });
-
-    new CfnOutput(this, 'ClusterReadEndpoint', {
-      value: cluster.clusterReadEndpoint.hostname,
-      description: 'Cluster Read Endpoint',
-    });
-
-    new CfnOutput(this, 'ClusterArnIdentifier', {
-      value: cluster.clusterArn,
-      description: 'Cluster ARM Identifier',
     });
 
   }
