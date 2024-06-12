@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
-import { TmRdsAuroraMysqlServerlessStack } from '../lib/rdsAuroraMysqlServerlessStack';
-import { TmVpcbaseStack } from '../../../src/stacks/network/vpcBaseStack';
-import { BastionStack } from '../lib/bastionStack';
-import { TmRdsNetworkSecondaryRegionStack } from '../lib/rdsNetworkSecondaryRegion';
+import { TmRdsAuroraMysqlServerlessStack } from '../lib/tm-rds-aurora-mysql-serverless-stack';
+import { TmVpcbaseStack } from '../../../src/stacks/network/tm-vpc-base-stack';
+import { BastionStack } from '../lib/tm-bastion-stack';
+import { TmRdsNetworkSecondaryRegionStack } from '../lib/tm-rds-network-secondary-region';
 import { AwsSolutionsChecks, NagSuppressions } from 'cdk-nag';
 import { Aspects } from 'aws-cdk-lib';
 

@@ -1,5 +1,5 @@
 {
-  "app": "npx ts-node --prefer-ts-exts bin/rdsauroramysqlserverless.ts",
+  "app": "npx ts-node --prefer-ts-exts bin/tm-rds-aurora-mysql-serverless.ts",
   "watch": {
     "include": [
       "**"

@@ -2,7 +2,7 @@
   "name": "rdsauroramysqlserverless",
   "version": "0.1.0",
   "bin": {
-    "rdsauroramysqlserverless": "bin/rdsauroramysqlserverless.js"
+    "tm-rds-aurora-mysql-serverless": "bin/tm-rds-aurora-mysql-serverless.js"
   },
   "scripts": {
     "build": "tsc",

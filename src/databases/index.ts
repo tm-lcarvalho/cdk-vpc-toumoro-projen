@@ -1,1 +1,1 @@
-export * from './rdsAuroraMysqlServerless';
+export * from './rds-aurora-mysql-serverless';
