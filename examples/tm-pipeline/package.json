@@ -2,7 +2,7 @@
   "name": "pipelinecdk",
   "version": "0.1.0",
   "bin": {
-    "pipelinecdk": "bin/pipelinecdk.js"
+    "tm-pipeline": "bin/tm-pipeline.js"
   },
   "scripts": {
     "build": "tsc",

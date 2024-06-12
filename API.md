@@ -2,27 +2,27 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
-### PipelineCdk <a name="PipelineCdk" id="tm-cdk-constructs.PipelineCdk"></a>
+### TmPipeline <a name="TmPipeline" id="tm-cdk-constructs.TmPipeline"></a>
 
 A CDK construct that creates a CodePipeline.
 
-#### Initializers <a name="Initializers" id="tm-cdk-constructs.PipelineCdk.Initializer"></a>
+#### Initializers <a name="Initializers" id="tm-cdk-constructs.TmPipeline.Initializer"></a>
 
 ```typescript
-import { PipelineCdk } from 'tm-cdk-constructs'
+import { TmPipeline } from 'tm-cdk-constructs'
 
-new PipelineCdk(scope: Construct, id: string, props: PipelineProps)
+new TmPipeline(scope: Construct, id: string, props: TmPipelineProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#tm-cdk-constructs.PipelineCdk.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | The parent construct. |
-| <code><a href="#tm-cdk-constructs.PipelineCdk.Initializer.parameter.id">id</a></code> | <code>string</code> | The name of the construct. |
-| <code><a href="#tm-cdk-constructs.PipelineCdk.Initializer.parameter.props">props</a></code> | <code><a href="#tm-cdk-constructs.PipelineProps">PipelineProps</a></code> | The properties for the construct. |
+| <code><a href="#tm-cdk-constructs.TmPipeline.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | The parent construct. |
+| <code><a href="#tm-cdk-constructs.TmPipeline.Initializer.parameter.id">id</a></code> | <code>string</code> | The name of the construct. |
+| <code><a href="#tm-cdk-constructs.TmPipeline.Initializer.parameter.props">props</a></code> | <code><a href="#tm-cdk-constructs.TmPipelineProps">TmPipelineProps</a></code> | The properties for the construct. |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="tm-cdk-constructs.PipelineCdk.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="tm-cdk-constructs.TmPipeline.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
@@ -30,7 +30,7 @@ The parent construct.
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="tm-cdk-constructs.PipelineCdk.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="tm-cdk-constructs.TmPipeline.Initializer.parameter.id"></a>
 
 - *Type:* string
 
@@ -38,9 +38,9 @@ The name of the construct.
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="tm-cdk-constructs.PipelineCdk.Initializer.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="tm-cdk-constructs.TmPipeline.Initializer.parameter.props"></a>
 
-- *Type:* <a href="#tm-cdk-constructs.PipelineProps">PipelineProps</a>
+- *Type:* <a href="#tm-cdk-constructs.TmPipelineProps">TmPipelineProps</a>
 
 The properties for the construct.
 
@@ -50,11 +50,11 @@ The properties for the construct.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#tm-cdk-constructs.PipelineCdk.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#tm-cdk-constructs.TmPipeline.toString">toString</a></code> | Returns a string representation of this construct. |
 
 ---
 
-##### `toString` <a name="toString" id="tm-cdk-constructs.PipelineCdk.toString"></a>
+##### `toString` <a name="toString" id="tm-cdk-constructs.TmPipeline.toString"></a>
 
 ```typescript
 public toString(): string
@@ -66,21 +66,21 @@ Returns a string representation of this construct.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#tm-cdk-constructs.PipelineCdk.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#tm-cdk-constructs.TmPipeline.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="tm-cdk-constructs.PipelineCdk.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="tm-cdk-constructs.TmPipeline.isConstruct"></a>
 
 ```typescript
-import { PipelineCdk } from 'tm-cdk-constructs'
+import { TmPipeline } from 'tm-cdk-constructs'
 
-PipelineCdk.isConstruct(x: any)
+TmPipeline.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
 
-###### `x`<sup>Required</sup> <a name="x" id="tm-cdk-constructs.PipelineCdk.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="tm-cdk-constructs.TmPipeline.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -92,12 +92,12 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#tm-cdk-constructs.PipelineCdk.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#tm-cdk-constructs.PipelineCdk.property.pipeline">pipeline</a></code> | <code>aws-cdk-lib.pipelines.CodePipeline</code> | The CodePipeline created by the construct. |
+| <code><a href="#tm-cdk-constructs.TmPipeline.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#tm-cdk-constructs.TmPipeline.property.pipeline">pipeline</a></code> | <code>aws-cdk-lib.pipelines.CodePipeline</code> | The CodePipeline created by the construct. |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="tm-cdk-constructs.PipelineCdk.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="tm-cdk-constructs.TmPipeline.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -109,7 +109,7 @@ The tree node.
 
 ---
 
-##### `pipeline`<sup>Required</sup> <a name="pipeline" id="tm-cdk-constructs.PipelineCdk.property.pipeline"></a>
+##### `pipeline`<sup>Required</sup> <a name="pipeline" id="tm-cdk-constructs.TmPipeline.property.pipeline"></a>
 
 ```typescript
 public readonly pipeline: CodePipeline;
@@ -1607,29 +1607,29 @@ The default subnet configuration if natGateways specified to be 0.
 
 ## Structs <a name="Structs" id="Structs"></a>
 
-### PipelineProps <a name="PipelineProps" id="tm-cdk-constructs.PipelineProps"></a>
+### TmPipelineProps <a name="TmPipelineProps" id="tm-cdk-constructs.TmPipelineProps"></a>
 
-#### Initializer <a name="Initializer" id="tm-cdk-constructs.PipelineProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="tm-cdk-constructs.TmPipelineProps.Initializer"></a>
 
 ```typescript
-import { PipelineProps } from 'tm-cdk-constructs'
+import { TmPipelineProps } from 'tm-cdk-constructs'
 
-const pipelineProps: PipelineProps = { ... }
+const tmPipelineProps: TmPipelineProps = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#tm-cdk-constructs.PipelineProps.property.pipelineName">pipelineName</a></code> | <code>string</code> | The name of the pipeline. |
-| <code><a href="#tm-cdk-constructs.PipelineProps.property.repoBranch">repoBranch</a></code> | <code>string</code> | The branch of the repository to use. |
-| <code><a href="#tm-cdk-constructs.PipelineProps.property.repoName">repoName</a></code> | <code>string</code> | The name of the repository. |
-| <code><a href="#tm-cdk-constructs.PipelineProps.property.primaryOutputDirectory">primaryOutputDirectory</a></code> | <code>string</code> | The primary output directory. |
-| <code><a href="#tm-cdk-constructs.PipelineProps.property.synthCommand">synthCommand</a></code> | <code>string[]</code> | The command to run in the synth step. |
+| <code><a href="#tm-cdk-constructs.TmPipelineProps.property.pipelineName">pipelineName</a></code> | <code>string</code> | The name of the pipeline. |
+| <code><a href="#tm-cdk-constructs.TmPipelineProps.property.repoBranch">repoBranch</a></code> | <code>string</code> | The branch of the repository to use. |
+| <code><a href="#tm-cdk-constructs.TmPipelineProps.property.repoName">repoName</a></code> | <code>string</code> | The name of the repository. |
+| <code><a href="#tm-cdk-constructs.TmPipelineProps.property.primaryOutputDirectory">primaryOutputDirectory</a></code> | <code>string</code> | The primary output directory. |
+| <code><a href="#tm-cdk-constructs.TmPipelineProps.property.synthCommand">synthCommand</a></code> | <code>string[]</code> | The command to run in the synth step. |
 
 ---
 
-##### `pipelineName`<sup>Required</sup> <a name="pipelineName" id="tm-cdk-constructs.PipelineProps.property.pipelineName"></a>
+##### `pipelineName`<sup>Required</sup> <a name="pipelineName" id="tm-cdk-constructs.TmPipelineProps.property.pipelineName"></a>
 
 ```typescript
 public readonly pipelineName: string;
@@ -1641,7 +1641,7 @@ The name of the pipeline.
 
 ---
 
-##### `repoBranch`<sup>Required</sup> <a name="repoBranch" id="tm-cdk-constructs.PipelineProps.property.repoBranch"></a>
+##### `repoBranch`<sup>Required</sup> <a name="repoBranch" id="tm-cdk-constructs.TmPipelineProps.property.repoBranch"></a>
 
 ```typescript
 public readonly repoBranch: string;
@@ -1653,7 +1653,7 @@ The branch of the repository to use.
 
 ---
 
-##### `repoName`<sup>Required</sup> <a name="repoName" id="tm-cdk-constructs.PipelineProps.property.repoName"></a>
+##### `repoName`<sup>Required</sup> <a name="repoName" id="tm-cdk-constructs.TmPipelineProps.property.repoName"></a>
 
 ```typescript
 public readonly repoName: string;
@@ -1665,7 +1665,7 @@ The name of the repository.
 
 ---
 
-##### `primaryOutputDirectory`<sup>Optional</sup> <a name="primaryOutputDirectory" id="tm-cdk-constructs.PipelineProps.property.primaryOutputDirectory"></a>
+##### `primaryOutputDirectory`<sup>Optional</sup> <a name="primaryOutputDirectory" id="tm-cdk-constructs.TmPipelineProps.property.primaryOutputDirectory"></a>
 
 ```typescript
 public readonly primaryOutputDirectory: string;
@@ -1677,7 +1677,7 @@ The primary output directory.
 
 ---
 
-##### `synthCommand`<sup>Optional</sup> <a name="synthCommand" id="tm-cdk-constructs.PipelineProps.property.synthCommand"></a>
+##### `synthCommand`<sup>Optional</sup> <a name="synthCommand" id="tm-cdk-constructs.TmPipelineProps.property.synthCommand"></a>
 
 ```typescript
 public readonly synthCommand: string[];

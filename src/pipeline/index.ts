@@ -6,7 +6,7 @@ import { Construct } from 'constructs';
 // https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.pipelines-readme.html
 
 // Define the properties for the Pipeline construct
-export interface PipelineProps {
+export interface TmPipelineProps {
   /**
    * The name of the pipeline.
    */
@@ -32,7 +32,7 @@ export interface PipelineProps {
 /**
  * A CDK construct that creates a CodePipeline.
  */
-export class PipelineCdk extends Construct {
+export class TmPipeline extends Construct {
   /**
    * The CodePipeline created by the construct.
    */
@@ -44,7 +44,7 @@ export class PipelineCdk extends Construct {
    * @param props The properties for the construct.
    * @default - No default properties.
    *  */
-  constructor(scope: Construct, id: string, props: PipelineProps) {
+  constructor(scope: Construct, id: string, props: TmPipelineProps) {
     super(scope, id);
 
     // Define a CodeCommit repository
