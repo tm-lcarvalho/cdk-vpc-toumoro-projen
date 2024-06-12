@@ -2,7 +2,7 @@
   "name": "vpcbase",
   "version": "0.1.0",
   "bin": {
-    "vpcbase": "bin/vpcbase.js"
+    "tm-vpc-base": "bin/tm-vpc-base.js"
   },
   "scripts": {
     "build": "tsc",

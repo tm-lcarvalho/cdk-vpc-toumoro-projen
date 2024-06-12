@@ -1,7 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { IVpc } from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
-import { TmVpcBase } from '../..';
+import { TmVpcBase } from '../../network/vpc-base';
 
 interface VpcBaseStackProps extends cdk.StackProps {
   range?: string;

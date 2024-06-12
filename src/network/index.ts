@@ -1,1 +1,1 @@
-export * from './vpcbase';
+export * from './vpc-base';

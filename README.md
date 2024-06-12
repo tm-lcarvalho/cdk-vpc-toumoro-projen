@@ -34,7 +34,7 @@ Welcome to Toumoro's AWS Service Wrapper CDK Construct Library! This library is 
    - Use descriptive names that reflect the purpose of the construct.
    - CamelCase for multi-word names.
    - Avoid abbreviations unless they are widely understood.
-   - Example: BucketStack, RestApiConstruct, DatabaseCluster.
+   - Example: VpcBasic, RdsAuroraMysqlServerLess.
 3. *Property Names*:
    - Follow AWS resource naming conventions where applicable.
    - Use camelCase for property names.
@@ -45,9 +45,10 @@ Welcome to Toumoro's AWS Service Wrapper CDK Construct Library! This library is 
    - Use camelCase.
    - Example: addBucketPolicy, createVpc, invokeLambda.
 5. *Interface Names*:
-   - Start with an uppercase I.
+   - Interfaces begging uppercase I are reserverd to AWS CDK library.
+   - Start with an prefix TmI
    - Use clear and descriptive names.
-   - Example: IInstance, ISecurityGroup, IVpc.
+   - Example: TmIInstance, TmISecurityGroup, TmIVpc.
 6. *Module Names*:
    - Use lowercase with hyphens for separating words.
    - Be descriptive but concise.
